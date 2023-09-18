@@ -39,11 +39,11 @@ public bandera:boolean=false
   ngOnInit(): void {
 
     var token :string | null= localStorage.getItem('token');
-    var user :string | null= localStorage.getItem('user');
+    var name :string | null= localStorage.getItem('name');
     // var menu :string | null= localStorage.getItem('menu');
-    if(token!=null && user!=null){
+    if(token!=null && name!=null){
         // this.showSuccess()
-      let userObjeto:any = JSON.parse(user); 
+      let userObjeto:any = JSON.parse(name); 
       // let menuObjeto:any = JSON.parse(menu); 
       let userLoginResponse={
         user:userObjeto,
@@ -105,7 +105,7 @@ if(email.value.email1 == '' || email.value.email1 == 'undefined'){
 
   private buildForm(){
     this.form = this.formBuilder.group({
-    name:['', [Validators.required]],
+    username:['', [Validators.required]],
     //surname:['', [Validators.required]],
     //DocumentTypeId:[1],
     //identification:['', [Validators.required]],
@@ -130,7 +130,7 @@ if(email.value.email1 == '' || email.value.email1 == 'undefined'){
     // value=value.slice(1)
     // console.log(value[0])
     let formValue={
-      name: this.form.value.name,
+      username: this.form.value.username,
       //surname: this.form.value.surname,
       //DocumentTypeId: this.form.value.DocumentTypeId,
       //identification: this.form.value.identification,
@@ -148,7 +148,7 @@ if(email.value.email1 == '' || email.value.email1 == 'undefined'){
 
     // }else{
 
-      if(formValue.name != ""&&
+      if(formValue.username != ""&&
                 //formValue.surname != ""&&
                 //formValue.DocumentTypeId != ( 0 || undefined)&&
                 //formValue.identification != ""&&   esto es temporal

@@ -37,7 +37,7 @@ export class AuthService {
   // API path
   base_path_get = `${this.API_URI}/api/mainSesionAdmin`;
   base_path_get2 = `${this.API_URI}/api/mainSesion`;
-  base_path_get_login = `${this.API_URI}/api/login`;
+  base_path_get_login = `${this.API_URI}/auth/login/`;
 
   constructor(
     private http: HttpClient,

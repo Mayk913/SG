@@ -15,8 +15,8 @@ export class UserService {
   API_URI = environment.API_URI;
 
   // API path
-  base_path = `${this.API_URI}/users/`;
-  base_path_post = `${this.API_URI}/users/create/`;
+  base_path = `${this.API_URI}/auth/`;
+  base_path_post = `${this.API_URI}/auth/register/`;
   base= `${this.API_URI}/api/change-password`;
   constructor(private http: HttpClient,
     ) {  

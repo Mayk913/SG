@@ -5,7 +5,7 @@ export interface UserI {
   id?:number;
   username: string;
   email: string;
-  fullName: string;
+  //fullName: string;
   password?: string;
   Roles?:[
     {
