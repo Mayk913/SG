@@ -32,9 +32,13 @@ export interface UserLoginI {
 
 
 export interface UserLoginResponseI {
-  user:  UsernameI;
+  ok?:boolean;
+  data?: any;
+  request_id?: any;
+  user?:  UsernameI;
   token: string;
   menu?:any
+
 }
 
 export interface MenuResponseI {

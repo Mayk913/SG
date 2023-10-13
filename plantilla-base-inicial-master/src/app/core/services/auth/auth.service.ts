@@ -80,7 +80,7 @@ export class AuthService {
 
   getMenu2(userLoginResponse:UserLoginResponseI): Observable<{ mainSesion: listaMenuI[] }> {
     const data={
-      userId:userLoginResponse.user.id,
+      // userId:userLoginResponse.user.id,
       token:userLoginResponse.token,
     }
     return this.http
@@ -114,10 +114,9 @@ export class AuthService {
         if (res) {
           console.log(res)
           // localStorage.setItem(KEY_MENU, JSON.stringify(res.menu));
-          this.setLoginData(res);
+          this.setLoginData(res.data);
           this.userLoginResponse$.next(res)
           this.setLogin(true);
-        
         }
       })
     );
