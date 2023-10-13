@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
   video: string='assets/video/manteni.mp4';
   constructor(
     private primengConfig: PrimeNGConfig,
-    private maintenanceService: MaintenanceService,
+    // private maintenanceService: MaintenanceService,
     private router: Router,
     private authService: AuthService, 
 
