@@ -27,6 +27,8 @@ blockSpecial: RegExp = /^[^<>*!@.,]+$/
 public Roles1:any[] =[]
 public bandera:boolean=false
 
+public isSignInActive: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router, 
@@ -37,6 +39,38 @@ public bandera:boolean=false
   }
 
   ngOnInit(): void {
+    // const signUpButton = document.getElementById('signUp');
+    // const signInButton = document.getElementById('signIn');
+    // const container = document.getElementById('container');
+
+    // signUpButton?.addEventListener('click', () => {
+    //   container?.classList.add('right-panel-active');
+    // });
+    // console.log(signUpButton)
+
+    // signInButton?.addEventListener('click', () => {
+    //   container?.classList.remove('right-panel-active');
+    // });
+    // console.log(signInButton)
+
+    // showSignInForm() {
+    //   const container = document.getElementById('container');
+    //   if (container) {
+    //     container.classList.remove('right-panel-active');
+    //   }
+    // }
+  
+    // showSignUpForm() {
+    //   const container = document.getElementById('container');
+    //   if (container) {
+    //     container.classList.add('right-panel-active');
+    //   }
+    // }
+
+   
+
+
+    ///////////////////////////////////////////////////////////////////////////////
 
     var token :string | null= localStorage.getItem('token');
     var name :string | null= localStorage.getItem('name');

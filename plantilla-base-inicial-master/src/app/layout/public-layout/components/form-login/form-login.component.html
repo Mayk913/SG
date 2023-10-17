@@ -29,19 +29,19 @@
           <input type="password" pInputText formControlName="password" placeholder="Password" />
           <!-- <a href="#">Forgot your password?</a> -->
           
-          <button pButton pRipple type="submit" icon="pi pi-check" label="Entrar" [disabled]="!form.valid"></button>
+          <button pButton pRipple type="submit" icon="pi pi-check"  label="Entrar" [disabled]="!form.valid"></button>
         
       </div>
       <div class="overlay-container">
         <div class="overlay">
           <div class="overlay-panel overlay-left">
-            <h1>Welcome Back!</h1>
-            <p>To keep connected with us please login with your personal info</p>
-            <button class="ghost" id="signIn">Iniciar sersion</button>
+            <h1>¡Bienvenido de vuelta!</h1>
+            <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal</p>
+            <button class="ghost" id="signIn" pButton pRipple type="button" routerLink="/login" icon="pi pi-sync" label="Login"></button>
           </div>
           <div class="overlay-panel overlay-right">
             <h1>Hola!</h1>
-            <p>Enter your personal details and start journey with us</p>
+            <p>Introduce tus datos personales y comienza tu viaje con nosotros</p>
             <button class="ghost" id="signUp" pButton pRipple type="button" routerLink="/register" icon="pi pi-users" label="Registrarse"></button>
           </div>
         </div>
