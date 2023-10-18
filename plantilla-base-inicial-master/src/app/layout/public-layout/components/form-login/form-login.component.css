@@ -116,7 +116,42 @@ input {
 	height: 100%;
 	transition: all 0.6s ease-in-out;
 }
-
+.form-container .loader {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	display: inline-block;
+	border-top: 4px solid #fa08a9; /* Fucsia */
+	border-right: 4px solid #FF3D00; /* Naranja claro */
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+	position: absolute;
+	margin-top: 20%; /* Centra verticalmente */
+	margin-left: 20%; /* Centra horizontalmente */
+	transform: translate(-50%, -50%); /* Centra vertical y horizontalmente */
+  }
+  
+.loader::after {
+	content: '';  
+	box-sizing: border-box;
+	position: absolute;
+	left: 22%;
+	top: 45%;
+	width: 48px;
+	height: 48px; /* Ajusta el tamaño de acuerdo a tus necesidades */
+	border-radius: 50%;
+	border-left: 4px solid #FF3D00; /* Naranja claro */
+	border-bottom: 4px solid #fa08a9; /* Fucsia */
+	animation: rotation 0.5s linear infinite reverse;
+  }
+  @keyframes rotation {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  } 
 .sign-in-container {
 	left: 0;
 	width: 50%;

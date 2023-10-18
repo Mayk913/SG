@@ -17,35 +17,35 @@
       <button pButton pRipple type="submit" icon="pi pi-check" label="Enviar" [disabled]="!form.valid"></button>
 
     </div>
-    <!-- <div class="form-container sign-in-container">
+    <div class="form-container sign-in-container">
 
       <h1>SGDD</h1>
-      <div class="social-container">
+      <!-- <div class="social-container">
         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div>
-      <span>or use your account</span>
+      <span>or use your account</span> -->
       <input type="email" pInputText formControlName="username" placeholder="Correo" />
       <input type="password" pInputText formControlName="password" placeholder="Password" />
-      <a href="#">Forgot your password?</a>
+      <!-- <a href="#">Forgot your password?</a> -->
 
       <button pButton pRipple type="submit" icon="pi pi-check" label="Entrar" [disabled]="!form.valid"></button>
 
-    </div> -->
+    </div>
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
           <h1>¡Bienvenido de vuelta!</h1>
           <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal</p>
-          <button class="ghost" id="signIn"  pButton pRipple type="button" routerLink="/login" icon="pi pi-sync" label="Login"></button>
+          <button class="ghost" id="signIn" (click)="showSignInForm()" pButton pRipple type="button" routerLink="/login" icon="pi pi-sync" label="Login"></button>
         </div>
-        <div class="overlay-panel overlay-right">
+        <!-- <div class="overlay-panel overlay-right">
           <h1>Hola!</h1>
           <p>Introduce tus datos personales y comienza tu viaje con nosotros</p>
-          <button class="ghost" id="signUp"  pButton pRipple type="button" routerLink="/register" icon="pi pi-users"
+          <button class="ghost" id="signUp" (click)="showSignUpForm()" pButton pRipple type="button" routerLink="/register" icon="pi pi-users"
             label="Registrarse"></button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

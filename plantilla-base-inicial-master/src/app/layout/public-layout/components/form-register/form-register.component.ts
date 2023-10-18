@@ -11,6 +11,20 @@ import { RoleI } from 'src/app/models/authorization/usr_roles';
   styleUrls: ['./form-register.component.css']
 })
 export class FormRegisterComponent implements OnInit {
+  
+  showSignInForm() {
+      const container = document.getElementById('container');
+      if (container) {
+        container.classList.remove('right-panel-active');
+      }
+    }
+  
+    showSignUpForm() {
+      const container = document.getElementById('container');
+      if (container) {
+        container.classList.add('right-panel-active');
+      }
+    }
 
   public form: FormGroup=this.formBuilder.group({});
   public mostrar:boolean =false;
@@ -71,7 +85,7 @@ public isSignInActive: boolean = false;
 
 
     ///////////////////////////////////////////////////////////////////////////////
-
+    this.showSignUpForm();
     var token :string | null= localStorage.getItem('token');
     var name :string | null= localStorage.getItem('name');
     // var menu :string | null= localStorage.getItem('menu');
