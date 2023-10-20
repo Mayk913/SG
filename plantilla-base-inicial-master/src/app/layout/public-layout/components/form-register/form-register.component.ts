@@ -35,7 +35,7 @@ export class FormRegisterComponent implements OnInit {
   selectedCities3: any[] = [];
   cities: RoleI[] = [];
   public image: string = 'assets/demo.png';
-  blockSpecial: RegExp = /^[^<>*!@.,]+$/;
+  // blockSpecial: RegExp = /^[^<>*!@.,]+$/;
 
   public Roles1: any[] = [];
   public bandera: boolean = false;
