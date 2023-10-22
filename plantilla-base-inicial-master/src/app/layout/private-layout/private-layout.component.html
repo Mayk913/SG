@@ -1,7 +1,7 @@
 <ng-template [ngIf]="isLoggedIn === true">
-  <div class="grid" [style]="{'background':'gray',
-  'color':'#fff','font-weight':'bold','margin':'0',
-  'border':'1px solid gray','border-radius':'0px'}">
+  <div class="grid" [style]="{'background-color':' linear-gradient(to right, orange, fuchsia)',
+    'color':'#fff','font-weight':'bold','margin':'0',
+    'border':'1px solid gray','border-radius':'0px'}">
 
     <div class="col-12 sm:col-2 md:col-3 lg:col-3 xl:col-3">
       <p-button styleClass="p-button-outlined  p-button-warning" (click)="display = true" class="mr-3">
@@ -112,59 +112,67 @@
     <div style="text-align: center;">
       <button pButton pRipple label="No" icon="pi pi-times" style="color: rgb(31, 45, 64);" class="p-button-text"
         (click)="hideDialog()"></button>
-      <button pButton pRipple label="Si" style="background: #5780f1" class=" p-button-raised p-button-rounded"
+      <button pButton pRipple label="Si" style="background: #e38228" class=" p-button-raised p-button-rounded"
         icon="pi pi-check" (click)="cerrarSesion()"></button>
     </div>
   </ng-template>
 </p-dialog>
 
 
-<!-- =============================Edit user======================================== -->
+<!-- =============================Edit/complete user======================================== -->
 <p-dialog [(visible)]="Dialog2" [style]="{'width': '60vw'}">
   <h1>Datos Personales</h1>
 
-  <form>
-      <div style="display: flex; justify-content: space-between;">
-          <div style="width: 48%;">
-              <label for="nombre">Nombre:</label>
-              <input type="text" id="nombre" name="nombre" required><br><br>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+    <div style="display: flex; justify-content: space-between;">
+      <div style="width: 48%;">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
 
-              <label for="segundoNombre">Segundo Nombre:</label>
-              <input type="text" id="segundoNombre" name="segundoNombre"><br><br>
+        <label for="segundoNombre">Segundo Nombre:</label>
+        <input type="text" id="segundoNombre" name="segundoNombre"><br><br>
 
-              <label for="identificacion">Identificación:</label>
-              <input type="text" id="identificacion" name="identificacion" required><br><br>
+        <label for="identificacion">Identificación:</label>
+        <input type="text" id="identificacion" name="identificacion" required><br><br>
 
-              <label for="tipoIdentificacion">Tipo de Identificación:</label>
-              <select id="tipoIdentificacion" name="tipoIdentificacion">
-                  <option value="cedula">Cédula</option>
-                  <option value="pasaporte">Pasaporte</option>
-                  <option value="tarjetaIdentidad">Tarjeta de Identidad</option>
-                  <option value="otro">Otro</option>
-              </select>
-          </div>
-
-          <div style="width: 48%;">
-              <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-              <input type="date" id="fechaNacimiento" name="fechaNacimiento"><br><br>
-
-              <label for="edad">Edad:</label>
-              <input type="number" id="edad" name="edad"><br><br>
-
-              <label for="sexo">Sexo:</label>
-              <input type="radio" id="sexo" name="sexo" value="masculino"> Masculino
-              <input type="radio" id="sexo" name="sexo" value="femenino"> Femenino
-              <input type="radio" id="sexo" name="sexo" value="otro"> Otro<br><br>
-
-              <label for="nacionalidad">Nacionalidad:</label>
-              <input type="text" id="nacionalidad" name="nacionalidad"><br><br>
-
-              <label for="telefono">Teléfono:</label>
-              <input type="tel" id="telefono" name="telefono">
-          </div>
+        <label for="tipoIdentificacion">Tipo de Identificación:</label>
+        <select id="tipoIdentificacion" name="tipoIdentificacion">
+          <option value="cedula">Cédula</option>
+          <option value="pasaporte">Pasaporte</option>
+          <option value="tarjetaIdentidad">Tarjeta de Identidad</option>
+          <option value="otro">Otro</option>
+        </select>
       </div>
 
-      <br>
-      <input type="submit" value="Enviar">
+      <div style="width: 48%;">
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento"><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad"><br><br>
+
+        <label for="sexo">Sexo:</label>
+          <select id="sexo" name="sexo">
+            <option value="masculino">Masculino</option>
+            <option value="femenimo">Femenimo</option>
+            <option value="Otro">Otro</option>
+
+          </select>
+          <br/>
+          <br/>
+
+        
+
+
+        <label for="nacionalidad">Nacionalidad:</label>
+        <input type="text" id="nacionalidad" name="nacionalidad"><br><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono">
+      </div>
+    </div>
+
+    <br>
+    <button pButton pRipple type="submit" icon="pi pi-check" label="Guardar cambios" style="background: #e38228; border-color: #e38228;"></button>
   </form>
 </p-dialog>

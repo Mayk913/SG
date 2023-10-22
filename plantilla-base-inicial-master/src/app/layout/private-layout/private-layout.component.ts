@@ -1,5 +1,6 @@
 
 import {  MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import { valorReloj, XsegundoService } from 'src/app/core/services/reloj/Xsegundo.service';
@@ -41,6 +42,7 @@ export class PrivateLayoutComponent implements OnInit {
   public mostrar:boolean =false;
   public username: string | undefined=undefined
   public  password: string | undefined=undefined
+  public form: FormGroup = this.formBuilder.group({});
 
   public files1:menu[]=[]
   datos$: Observable<valorReloj>=this.segundo.getInfoReloj();
@@ -55,12 +57,13 @@ export class PrivateLayoutComponent implements OnInit {
   public image2:string='assets/demo.png'
   public Dialog:boolean =false
   public Dialog2:boolean =false
-
+  public bandera: boolean = false;
   private UserId:number=0
   public mensaje:boolean=false
 
 
   constructor(
+    private formBuilder: FormBuilder,
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
     private authService: AuthService, 
@@ -136,6 +139,7 @@ export class PrivateLayoutComponent implements OnInit {
     {separator: true},
    
   ];
+  
 
 }
 
@@ -219,5 +223,108 @@ if(token!=null && user!=null && menu != null){
     this.router.navigateByUrl('/login');
   }
 }
+onSubmit() {
+  //  let bandera= this.verificar()
 
+  //  if(bandera == true){
+  // let value = this.form.value.email1.split('@');
+  //  let result = this.form.value.email1.substring(1, this.form.value.email1.split('@'));
+  // value=value.slice(1)
+  // console.log(value[0])
+  let formValue = {
+    username: this.form.value.username,
+    //surname: this.form.value.surname,
+    //DocumentTypeId: this.form.value.DocumentTypeId,
+    //identification: this.form.value.identification,
+    // GenderId: this.form.value.GenderId.id,
+    // address: this.form.value.address,
+    // phone: this.form.value.phone,
+    email: this.form.value.email1,
+    password: this.form.value.password,
+    // nationality: this.form.value.nationality,
+    // date_of_birth: this.form.value.date_of_birth,
+  };
+
+  // if(this.form.value.password !== this.form.value.password2){
+  //   this.messageService.add({severity:'warn', summary: 'Warn', detail: 'Contraseñas No Coinciden'});
+
+  // }else{
+
+  if (
+    formValue.username != '' &&
+    //formValue.surname != ""&&
+    //formValue.DocumentTypeId != ( 0 || undefined)&&
+    //formValue.identification != ""&&   esto es temporal
+    // formValue.GenderId != ( 0 || undefined)&&
+    // formValue.address != ""&&
+    // formValue.phone != ""&&
+    formValue.email != '' &&
+    formValue.password != ''
+    // &&
+    // formValue.nationality != "" &&
+    // formValue. date_of_birth!= ""
+  ) {
+    this.bandera = true;
+    console.log(formValue);
+
+    this.userService.createUser(formValue).subscribe(
+      (algo) => {
+        var date = new Date('2020-01-01 00:00:03');
+        function padLeft(n: any) {
+          return (n = '00'.substring(0, '00'.length - n.length) + n);
+        }
+        var interval = setInterval(() => {
+          var minutes = padLeft(date.getMinutes() + '');
+          var seconds = padLeft(date.getSeconds() + '');
+          if (seconds == '03') {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Registro de Usuario Creado con exito',
+            });
+          }
+          if (seconds == '01') {
+            this.bandera = false;
+          }
+          date = new Date(date.getTime() - 1000);
+          if (minutes == '00' && seconds == '01') {
+            this.bandera = false;
+            this.router.navigateByUrl('/login');
+            clearInterval(interval);
+          }
+        }, 1000);
+      },
+      async (error) => {
+        if (error != undefined) {
+          if (error != undefined) {
+            if (error.error.dataErros) {
+              this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: `Error. ${error.error.dataErros[0].message}`,
+              });
+            }
+            if (error.error.message) {
+              this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: `Error. ${error.error.message}`,
+              });
+            }
+            console.log(error);
+          }
+          this.bandera = false;
+        }
+      }
+    );
+  } else {
+    this.messageService.add({
+      severity: 'warn',
+      summary: 'Warn',
+      detail: 'Faltan datos',
+    });
+    this.bandera = false;
+  }
+  //}
+}
 }
