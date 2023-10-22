@@ -54,6 +54,7 @@ export class PrivateLayoutComponent implements OnInit {
   public image3:string='assets/demo1.png'
   public image2:string='assets/demo.png'
   public Dialog:boolean =false
+  public Dialog2:boolean =false
 
   private UserId:number=0
   public mensaje:boolean=false
@@ -126,6 +127,9 @@ export class PrivateLayoutComponent implements OnInit {
     }
   ];
   this.items = [
+    {label: 'Configuración', icon: 'pi pi-user-edit', command: () => {
+      this.showConfirm2();
+  } },
     {label: 'Cerrar Sesion', icon: 'pi pi-power-off', command: () => {
       this.showConfirm();
   }},
@@ -174,6 +178,10 @@ this.router.navigateByUrl('/login')
 
 showConfirm() {
   this.Dialog = true;
+  
+}
+showConfirm2() {
+  this.Dialog2 = true;
   
 }
 
