@@ -208,7 +208,7 @@ export class PrivateLayoutComponent implements OnInit {
     // this.userService.getOneUser(this.UserId).subscribe(UserId) => {
       
     // }
-    
+
     this.Dialog2 = true;
   }
 
@@ -268,6 +268,14 @@ export class PrivateLayoutComponent implements OnInit {
 
 
   onSubmit() {
+    this.userService.getOneUser(this.UserId).subscribe((userData) => {
+      if (userData) {
+        // Llena el formulario con los datos del usuario logueado
+        console.log(userData)
+        
+      }
+    });
+  
       let formValue = {
         UserId: this.UserId,
         name: this.form.value.name,
@@ -301,6 +309,7 @@ export class PrivateLayoutComponent implements OnInit {
       ) {
         this.bandera = true;
         console.log(formValue);
+        
         
 
       this.userService.createPerson(formValue).subscribe(

@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 export class LandingComponent implements OnInit {
   // public image:string='assets/images/institution/fondeba1.jpg'
   // public image2:string='assets/demo1.png'
-  public image3:string='assets/demo1.png'
+  public image3:string='assets/deportes.jpg'
   public bandera:boolean=false
   public nombre:string = '';
   private API_URI:string=environment.API_URI
