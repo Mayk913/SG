@@ -18,6 +18,7 @@ export class UserService {
   base_path = `${this.API_URI}/auth/`;
   base_path_post = `${this.API_URI}/auth/register/`;
   base= `${this.API_URI}/api/change-password`;
+  base_path_person = `${this.API_URI}/persons/`;
   constructor(private http: HttpClient,
     ) {  
   }
@@ -206,14 +207,14 @@ getOneUser(id: number): Observable<{ user: UserI ,rolesUsers:any[]}> {
       })
     }
   return this.http
-    .get<{ user: UserI ,rolesUsers:any[]}>(this.base_path + '/' + id,httpOptions)
+    .get<{ user: UserI ,rolesUsers:any[]}>(this.API_URI + '/users/' + id,httpOptions)
     .pipe(
       retry(0),
       catchError(this.handleError)
     )
   }else{
     return this.http
-    .get<{ user: UserI ,rolesUsers:any[]}>(this.base_path + '/' + id)
+    .get<{ user: UserI ,rolesUsers:any[]}>(this.API_URI + '/users/' + id)
     .pipe(
       retry(0),
       catchError(this.handleError)
@@ -356,5 +357,43 @@ console.log(file,'FormData')
     catchError(this.handleError))
 }
 
+//===============CRUD Person==========================//
+
+// Obtener una lista de personas
+getPeople(): Observable<PersonI[]> {
+  return this.http.get<PersonI[]>(this.base_path_person).pipe(
+    retry(1), // Intentos de reintentos en caso de error
+    catchError(this.handleError)
+  );
+}
+
+// Obtener una persona por su ID
+getPersonById(id: number): Observable<PersonI> {
+  return this.http.get<PersonI>(`${this.base_path_person}/${id}`).pipe(
+    retry(1),
+    catchError(this.handleError)
+  );
+}
+
+// Crear una nueva persona
+createPerson(person: PersonI): Observable<PersonI> {
+  return this.http.post<PersonI>(this.base_path_person + 'create/', person).pipe(
+    catchError(this.handleError)
+  );
+}
+
+// Actualizar los datos de una persona existente
+updatePerson(id: number, person: PersonI): Observable<PersonI> {
+  return this.http.put<PersonI>(`${this.base_path_person}/${id}`, person).pipe(
+    catchError(this.handleError)
+  );
+}
+
+// Eliminar una persona por su ID
+deletePerson(id: number): Observable<any> {
+  return this.http.delete(`${this.base_path_person}/${id}`).pipe(
+    catchError(this.handleError)
+  );
+}
 
 }

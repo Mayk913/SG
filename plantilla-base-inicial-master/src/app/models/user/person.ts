@@ -17,7 +17,7 @@ export interface PersonI {
       username: string;
       email?:string;
       password?: string;
-      fullName: string;
+      //fullName: string;
       Roles?:RoleI[]
   avatar?:string
     }
