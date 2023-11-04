@@ -4,10 +4,10 @@ export interface PersonI {
     id?:number;
     name: string;
     surname: string;
-    DocumentTypeId: string;
+    DocumentTypeId: number;
     identification: string;
-    GenderId?: string;
-    UserId: number;
+    GenderId?: number;
+    // UserId: number;
     address?: string;
     phone?: string;
     Gender?:any;

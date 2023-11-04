@@ -11,6 +11,8 @@ import { createMenu, listMenu } from 'src/app/consts/menu';
 import { DialogService } from 'primeng/dynamicdialog';
 import { Router } from '@angular/router';
 import { PersonI } from 'src/app/models/user/person';
+import { UserI } from 'src/app/models/authorization/usr_User';
+
 interface menu {
   label: string,
   data?: string
@@ -62,12 +64,13 @@ export class PrivateLayoutComponent implements OnInit {
   private UserId: number = 0
   public mensaje: boolean = false
   public persona: PersonI = {
-    UserId: 0,
+    // UserId: 0,
+    id:0,
     name: '',
     surname: '',
-    DocumentTypeId: '',  // Esto debe inicializarse a un valor válido
+    DocumentTypeId: 0,  // Esto debe inicializarse a un valor válido
     identification: '',
-    GenderId: '',  // Esto debe inicializarse a un valor válido
+    GenderId: 0,  // Esto debe inicializarse a un valor válido
     address: '',
     phone: '',
     //email: '',
@@ -268,21 +271,22 @@ export class PrivateLayoutComponent implements OnInit {
 
 
   onSubmit() {
-    this.userService.getOneUser(this.UserId).subscribe((userData) => {
-      if (userData) {
-        // Llena el formulario con los datos del usuario logueado
-        console.log(userData)
+  
+    // this.userService.getOneUser(this.UserId).subscribe((userData) => {
+    //   if (userData) {
+    //     // Llena el formulario con los datos del usuario logueado
+    //     console.log(userData)
         
-      }
-    });
+    //   }
+    // });
   
       let formValue = {
-        UserId: this.UserId,
+        // UserId: +this.UserId,
         name: this.form.value.name,
         surname: this.form.value.surname,
-        DocumentTypeId: this.form.value.DocumentTypeId,
+        DocumentTypeId:  +this.form.value.DocumentTypeId,
         identification: this.form.value.identification,
-        GenderId: this.form.value.GenderId,
+        GenderId: +this.form.value.GenderId,
         address: this.form.value.address,
         phone: this.form.value.phone,
         // email: this.form.value.email1,

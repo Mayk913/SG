@@ -97,7 +97,7 @@ export class AuthService {
   }
 
   public register(user: UserI): Observable<UserLoginResponseI> {
-    return this.http.post<UserLoginResponseI>(`${this.API_URI}/user`, user).pipe(tap(
+    return this.http.post<UserLoginResponseI>(`${this.API_URI}/users/`, user).pipe(tap(
       (res: UserLoginResponseI) => {
         if (res) {
           // localStorage.setItem(KEY_MENU, JSON.stringify(res.menu));
