@@ -133,10 +133,10 @@
         <input type="text" formControlName="surname"><br><br>
 
         <label for="identification">Identificación:</label>
-        <input type="text" formControlName="identification" ><br><br>
+        <input type="text" formControlName="identification"><br><br>
 
         <label for="DocumentTypeId">Tipo de Identificación:</label>
-        <select formControlName="DocumentTypeId" >
+        <select formControlName="DocumentTypeId">
           <option value="1">Cédula</option>
           <option value="2">Pasaporte</option>
           <option value="3">Tarjeta de Identidad</option>
@@ -146,33 +146,33 @@
 
       <div style="width: 48%;">
         <label for="date_of_birth">Fecha de Nacimiento:</label>
-        <input type="date" formControlName="date_of_birth" ><br><br>
+        <input type="date" formControlName="date_of_birth"><br><br>
 
         <!-- <label for="edad">Edad:</label>
         <input type="number" formControlName="edad" name="edad"><br><br> -->
 
         <label for="GenderId">Sexo:</label>
-          <select  formControlName="GenderId" >
-            <option value="1">Masculino</option>
-            <option value="2">Femenimo</option>
-            <option value='3'>Otro</option>
+        <select formControlName="GenderId">
+          <option value="1">Masculino</option>
+          <option value="2">Femenimo</option>
+          <option value='3'>Otro</option>
 
-          </select>
-          <br/>
-          <br/>
-
-        
-
+        </select>
+        <br />
+        <br />
 
         <label for="nationality">Nacionalidad:</label>
-        <input type="text" formControlName="nationality" ><br><br>
+        <input type="text" formControlName="nationality"><br><br>
 
         <label for="phone">Teléfono:</label>
-        <input type="tel" formControlName="phone" >
+        <input type="tel" formControlName="phone">
       </div>
     </div>
 
     <br>
-    <button pButton pRipple type="submit" icon="pi pi-check" label="Guardar cambios" style="background: #e38228; border-color: #e38228;"></button>
+    <p-toast></p-toast>
+    <button pButton pRipple type="submit" icon="pi pi-check" label="Guardar cambios"
+      style="background: #e38228; border-color: #e38228;"></button>
   </form>
+  
 </p-dialog>

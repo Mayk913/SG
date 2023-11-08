@@ -1,5 +1,7 @@
+
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
 import { CambiarPasswordI } from 'src/app/models/authorization/usr_CambiarPassword';
@@ -19,6 +21,7 @@ export class UserService {
   base_path_post = `${this.API_URI}/auth/register/`;
   base= `${this.API_URI}/api/change-password`;
   base_path_person = `${this.API_URI}/persons/`;
+  base_path_user=`${this.API_URI}/users/`;
   constructor(private http: HttpClient,
     ) {  
   }
@@ -194,6 +197,34 @@ getUserIdentificacion(cc:string): Observable<{ user: UserI }> {
 }
 
 // Get single student data by ID
+// getOneUser(id: number): Observable<{ user: UserI ,rolesUsers:any[]}> {
+//   let user : string | null=localStorage.getItem('user')
+//   let token : string | null=localStorage.getItem('token')
+//   if(token != null && user != null) {
+//     let userObjeto:any = JSON.parse(user); 
+//     let httpOptions = {
+//       headers: new HttpHeaders({
+//         'Content-Type': 'application/json',
+//         'x-token':token,
+//         'user':`${parseInt(userObjeto.id)}`
+//       })
+//     }
+//   return this.http
+//     .get<{ user: UserI ,rolesUsers:any[]}>(this.API_URI + '/users/' + id+`/`,httpOptions)
+//     .pipe(
+//       retry(0),
+//       catchError(this.handleError)
+//     )
+//   }else{
+//     return this.http
+//     .get<{ user: UserI ,rolesUsers:any[]}>(this.API_URI + '/users/' + id+`/`)
+//     .pipe(
+//       retry(0),
+//       catchError(this.handleError)
+//     )
+//   }
+// }
+
 getOneUser(id: number): Observable<{ user: UserI ,rolesUsers:any[]}> {
   let user : string | null=localStorage.getItem('user')
   let token : string | null=localStorage.getItem('token')
@@ -207,14 +238,14 @@ getOneUser(id: number): Observable<{ user: UserI ,rolesUsers:any[]}> {
       })
     }
   return this.http
-    .get<{ user: UserI ,rolesUsers:any[]}>(this.API_URI + '/users/' + id,httpOptions)
+    .get<{ user: UserI ,rolesUsers:any[]}>(this.API_URI + '/users/' + id+`/`,httpOptions)
     .pipe(
       retry(0),
       catchError(this.handleError)
     )
   }else{
     return this.http
-    .get<{ user: UserI ,rolesUsers:any[]}>(this.API_URI + '/users/' + id)
+    .get<{ user: UserI ,rolesUsers:any[]}>(this.API_URI + '/users/' + id+`/`)
     .pipe(
       retry(0),
       catchError(this.handleError)
@@ -362,15 +393,15 @@ console.log(file,'FormData')
 // Obtener una lista de personas
 getPeople(): Observable<PersonI[]> {
   return this.http.get<PersonI[]>(this.base_path_person).pipe(
-    retry(1), // Intentos de reintentos en caso de error
+    retry(0), // Intentos de reintentos en caso de error
     catchError(this.handleError)
   );
 }
 
 // Obtener una persona por su ID
 getPersonById(id: number): Observable<PersonI> {
-  return this.http.get<PersonI>(`${this.base_path_person}/${id}`).pipe(
-    retry(1),
+  return this.http.get<PersonI>(`${this.base_path_person}${id}`).pipe(
+    retry(0),
     catchError(this.handleError)
   );
 }
@@ -395,5 +426,11 @@ deletePerson(id: number): Observable<any> {
     catchError(this.handleError)
   );
 }
+
+// Método para obtener la persona asociada al usuario por ID
+  getPersonByUserId(userId: number): Observable<PersonI> {
+    const url = `${this.base_path_person}${userId}`; // Ajusta la URL según tu backend
+    return this.http.get<PersonI>(url);
+  }
 
 }

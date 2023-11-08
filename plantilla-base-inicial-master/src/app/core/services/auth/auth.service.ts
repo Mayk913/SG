@@ -129,6 +129,7 @@ export class AuthService {
     let fecha =  moment();
     localStorage.setItem(KEY_FECHA, JSON.stringify(fecha));
     localStorage.setItem(KEY_USER, JSON.stringify(loginData.user));
+    localStorage.setItem(KEY_TOKEN, JSON.stringify(loginData.token));
     localStorage.setItem(KEY_MENU, JSON.stringify(listMenu));
     // simulando la peiicion del backend
     // localStorage.setItem(KEY_MENU, JSON.stringify(listMenu));

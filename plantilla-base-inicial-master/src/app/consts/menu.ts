@@ -11,7 +11,8 @@ export let listMenu:listaMenuI[] = [
   {"id":11,"id_padre":9,"icono":"icon","link":"/dashboard/organigrama","titulo":"Organigrama"},
   {"id":12,"id_padre":1,"icono":"icon","link":"/dashboard","titulo":"Contacto"},
   {"id":13,"id_padre":12,"icono":"icon","link":"/dashboard/contactos","titulo":"Enviar Mensaje"},
-  {"id":101,"id_padre":0,"icono":"pi pi-building","link":"/institution","titulo":"Institución"},
+  //==============================================
+  {"id":101,"id_padre":0,"icono":"pi pi-building","link":"/institution","titulo":"Admin"},
 {"id":102,"id_padre":101,"icono":"icon","link":"/institution","titulo":"Universidad"},
 {"id":103,"id_padre":102,"icono":"icon","link":"/institution/mostrar_universitys","titulo":"Mostrar"},
 {"id":104,"id_padre":102,"icono":"icon","link":"/institution/mostrar_university/:id","titulo":"Detalles"},

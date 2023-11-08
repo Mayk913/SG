@@ -2,7 +2,7 @@ import { PersonI } from "../user/person";
 import { RoleI } from "./usr_roles";
 
 export interface UserI {
-  id?:number;
+  id:number;
   username: string;
   email: string;
   //fullName: string;

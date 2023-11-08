@@ -12,16 +12,24 @@ export interface PersonI {
     phone?: string;
     Gender?:any;
     DocumentType?:any;
-    User?:{
-      id?:number;
-      username: string;
-      email?:string;
-      password?: string;
-      //fullName: string;
-      Roles?:RoleI[]
-  avatar?:string
-    }
+    user:number;
+  //   user?:{
+  //     id:number;
+  // //     username: string;
+  // //     email?:string;
+  // //     password?: string;
+  // //     //fullName: string;
+  // //     Roles?:RoleI[]
+  // // avatar?:string
+  //   }
     nationality?: string;
     date_of_birth?: string;
     rolesUsers?:any[]
 }
+
+
+
+
+
+
+
