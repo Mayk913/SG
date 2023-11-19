@@ -7,21 +7,21 @@ export interface PersonI {
     DocumentTypeId: number;
     identification: string;
     GenderId?: number;
-    // UserId: number;
+    user: number;
     address?: string;
     phone?: string;
     Gender?:any;
     DocumentType?:any;
-    user:number;
-  //   user?:{
-  //     id:number;
-  // //     username: string;
-  // //     email?:string;
-  // //     password?: string;
-  // //     //fullName: string;
-  // //     Roles?:RoleI[]
-  // // avatar?:string
-  //   }
+    // user:number;
+    //   user?:{
+    //     id:number;
+    //     username: string;
+    //     email?:string;
+    //     // password?: string;
+    //     //fullName: string;
+    //     Roles?:RoleI[];
+    //     avatar?:string;
+    //   }
     nationality?: string;
     date_of_birth?: string;
     rolesUsers?:any[]

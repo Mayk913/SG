@@ -48,12 +48,19 @@ export class FormLoginComponent implements OnInit {
     const requestBody = JSON.stringify(form);
 
     this.authService.login(form).subscribe((result) => {
+      console.log(result.data)
+      // this.authService.setMenu(result.data.menu);
+      console.log('Menú en el componente:', result.data.menu);
       if (result)
         this.motrar = true;
-      if (result && result.data && result.data.user && result.data.user.name) {
+      if (result && result.data && result.data.user && result.data.user.name && result.data.menu) {
         this.messageService.add({ severity: 'success', summary: `Bienvenido ${result.data.user.name}` });
-      }
 
+      
+      
+
+      }
+      //AA
       var date = new Date('2020-01-01 00:00:04');
       function padLeft(n: any) {
         return n = "00".substring(0, "00".length - n.length) + n;

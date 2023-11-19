@@ -126,6 +126,7 @@ export class PrivateLayoutComponent implements OnInit {
 
     this.verificar();
     this.buildForm();
+    console.log('token: ',this.token)
 
     this.primengConfig.ripple = true;
     this.items2 = [
@@ -198,10 +199,26 @@ export class PrivateLayoutComponent implements OnInit {
     this.displayMaximizable = true;
   }
   cerrarSesion() {
-    this.setLogin(false);
-    this.authService.logout();
-    this.ngOnInit();
-    this.router.navigateByUrl('/login');
+
+    this.authService.logout().subscribe({
+      next: () => {
+        // Limpiar el estado de la sesión en el cliente
+        this.setLogin(false);
+    
+        // Redirigir a la página de login
+        this.router.navigateByUrl('/login');
+      },
+      error: (error) => {
+        console.error('Error during logout:', error);
+    
+        // En caso de error, aún limpiamos el estado de la sesión en el cliente
+        this.setLogin(false);
+    
+        // Redirigir a la página de login
+        this.router.navigateByUrl('/login');
+      }
+    });
+    
   }
 
   showConfirm() {

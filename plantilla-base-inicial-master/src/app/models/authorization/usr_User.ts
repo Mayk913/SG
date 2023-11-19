@@ -8,9 +8,9 @@ export interface UserI {
   //fullName: string;
   password?: string;
   Roles?:[
-    {
-      name:string
-    }
+    // {
+    //   name:string
+    // }
   ]
   Person?:PersonI
   avatar?:string
