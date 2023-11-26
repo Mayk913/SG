@@ -126,7 +126,6 @@ export class PrivateLayoutComponent implements OnInit {
 
     this.verificar();
     this.buildForm();
-    console.log('token: ',this.token)
 
     this.primengConfig.ripple = true;
     this.items2 = [

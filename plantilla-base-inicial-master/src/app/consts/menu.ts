@@ -1,7 +1,7 @@
 import { menuI, listaMenuI, opcMenu, hijosI } from '../models/menu'
 
 export let listMenu:listaMenuI[] = [
- {"id":1,"id_parent":0,"icon":"pi pi-home","link":"/dashboard","title":"Escritorio"},
+//  {"id":1,"id_parent":0,"icon":"pi pi-home","link":"/dashboard","title":"Escritorio"},
 //   {"id":2,"id_padre":1,"icono":"icon","link":"/dashboard","titulo":"General"},
 //   {"id":3,"id_padre":2,"icono":"icon","link":"/dashboard/aspecto_general","titulo":"Aspectos Generales"},
 //   {"id":4,"id_padre":2,"icono":"icon","link":"/dashboard/mision","titulo":"Misión"},

@@ -118,7 +118,7 @@ export class AuthService {
           if (res) {
             // localStorage.setItem(KEY_MENU, JSON.stringify(res.menu));
             this.userLoginResponse$.next(res);
-            this.setLoginData(res);
+            this.setLoginData(res.data);
             this.setLogin(true);
           }
         })
@@ -133,6 +133,7 @@ export class AuthService {
             // console.log(res)
 
             // localStorage.setItem(KEY_MENU, JSON.stringify(res.menu))
+            console.log('token en el servicio: ',res.data.token)
             this.setLoginData(res.data);
             this.userLoginResponse$.next(res);
             this.setLogin(true);

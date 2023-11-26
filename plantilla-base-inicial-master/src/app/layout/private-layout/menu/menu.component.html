@@ -9,12 +9,12 @@
       <ng-container *ngIf="item.menu != null" >
       
           <span *ngIf="item.collapsed " style="margin-left: 20px; 
-          position: relative; top: 0px; left: 0px; right: 10px; bottom: 0px;">
+            position: relative; top: 0px; left: 0px; right: 10px; bottom: 0px;">
             <i class="ml-4 pi pi-angle-up"></i>
   
           </span>
           <span *ngIf="!item.collapsed" style="margin-left: 20px; margin-right: 20px;
-          position: relative; top: 0px; left: 0px; right: 10px; bottom: 0px;">
+            position: relative; top: 0px; left: 0px; right: 10px; bottom: 0px;">
             <i class="mr-0  pi pi-angle-down"></i>
   
           </span>
@@ -25,7 +25,7 @@
     <div *ngIf="item.menu && !item.collapsed">
       <div *ngFor="let subitem of item.menu" class="hijo">
         <span   [routerLink]="subitem.link" (click)="clickHandler($event, subitem)" 
-        style="padding-left: 10px;">
+        style="padding-left: 40px;">
           <i class="ml-2 pi pi-chevron-right"  style="font-size: 1.5rem; margin-top: 5px;"></i>
           <span class="ml-2 " style="font-size: 18px;">{{ subitem.title }}</span>
 
