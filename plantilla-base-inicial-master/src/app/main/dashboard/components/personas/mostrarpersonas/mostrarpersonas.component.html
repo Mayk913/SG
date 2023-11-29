@@ -1,1 +1,29 @@
 <p>mostrarpersonas works!</p>
+<p-table [value]="personas">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <!-- <th>Correo</th> -->
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-persona>
+        <tr>
+            <td>{{persona.id}}</td>
+            <td>{{persona.name}}</td>
+            <td>{{persona.surname}}</td>
+            <td>{{persona.address}}</td>
+            <td>{{persona.phone}}</td>
+            <td>
+                <p-button icon="pi pi-print" class="mr-1"></p-button>
+                <p-button icon="pi pi-sync" class="mx-1"></p-button>
+                <p-button icon="pi pi-eraser" class="mx-1"></p-button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
