@@ -1,4 +1,6 @@
-<p>mostrarpersonas works!</p>
+<span>Lista de personas</span>
+<br/>
+<br/>
 <p-table [value]="personas">
     <ng-template pTemplate="header">
         <tr>
@@ -19,9 +21,9 @@
             <td>{{persona.address}}</td>
             <td>{{persona.phone}}</td>
             <td>
-                <p-button icon="pi pi-print" class="mr-1"></p-button>
-                <p-button icon="pi pi-sync" class="mx-1"></p-button>
-                <p-button icon="pi pi-eraser" class="mx-1"></p-button>
+                <button pButton pRipple icon="pi pi-print" class="boton" ></button>
+                <button pButton pRipple icon="pi pi-sync" class="boton" ></button>
+                <button pButton pRipple icon="pi pi-eraser" class="boton" ></button>
             </td>
         </tr>
     </ng-template>
