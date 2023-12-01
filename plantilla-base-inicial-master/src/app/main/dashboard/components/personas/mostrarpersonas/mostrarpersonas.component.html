@@ -1,12 +1,15 @@
 <span>Lista de personas</span>
 <br/>
 <br/>
-<p-table [value]="personas">
+<p-table [value]="personas" [styleClass]="'tabla'">
     <ng-template pTemplate="header">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Tipo de identificación</th>
+            <th>Identificación</th>
+            <th>Fecha de nacimiento</th>
             <th>Dirección</th>
             <th>Teléfono</th>
             <!-- <th>Correo</th> -->
@@ -18,8 +21,11 @@
             <td>{{persona.id}}</td>
             <td>{{persona.name}}</td>
             <td>{{persona.surname}}</td>
+            <td>{{persona.document_type}}</td>
+            <td>{{persona.identification}}</td>
+            <td>{{persona.date_of_birth}}</td>
             <td>{{persona.address}}</td>
-            <td>{{persona.phone}}</td>
+            <td>{{persona.phone_number}}</td>
             <td>
                 <button pButton pRipple icon="pi pi-print" class="boton" ></button>
                 <button pButton pRipple icon="pi pi-sync" class="boton" ></button>

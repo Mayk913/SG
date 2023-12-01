@@ -9,7 +9,7 @@ import { PersonI } from 'src/app/models/user/person';
 })
 export class MostrarpersonasComponent implements OnInit {
   public personas: PersonI[] = [];
-  public displayedColumns: string[] = ["id", "name", "surname", "address", "phone", "user", "nationality", "date_of_birth", "Acciones"];
+  public displayedColumns: string[] = ["id", "name", "surname","document_type" ,"identification","date_of_birth","address", "phone_number", "user", "nationality", "date_of_birth", "Acciones"];
 
   constructor(private userService: UserService) { }
 
@@ -21,7 +21,7 @@ export class MostrarpersonasComponent implements OnInit {
     this.userService.getPeople().subscribe({
       next: (data) => {
         this.personas = data;
-        console.log(this.personas);
+        console.log('personas: ',this.personas);
       }
     });
   }
