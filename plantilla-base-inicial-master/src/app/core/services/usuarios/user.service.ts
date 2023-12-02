@@ -422,7 +422,7 @@ updatePerson(id: number, person: PersonI): Observable<PersonI> {
 
 // Eliminar una persona por su ID
 deletePerson(id: number): Observable<any> {
-  return this.http.delete(`${this.base_path_person}/${id}`).pipe(
+  return this.http.delete(`${this.base_path_person}${id}`).pipe(
     catchError(this.handleError)
   );
 }

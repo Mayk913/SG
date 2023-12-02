@@ -3,6 +3,8 @@ import { UserService } from 'src/app/core/services/usuarios/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
 import { PersonI } from 'src/app/models/user/person';
+import { Router } from '@angular/router';
+import {Message,MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-mostrarpersonas',
@@ -15,7 +17,7 @@ export class MostrarpersonasComponent implements OnInit {
   public Dialog = false;
 
   public form:FormGroup=this.formBuilder.group({
-    id: [''],
+
     name: ['', [Validators.required]],
     surname: ['', [Validators.required]],
     DocumentTypeId: ['', [Validators.required]],
@@ -35,6 +37,8 @@ export class MostrarpersonasComponent implements OnInit {
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
+    private messageService: MessageService,
+    private router: Router,
     ) { }
 
   ngOnInit(): void {
@@ -55,6 +59,21 @@ export class MostrarpersonasComponent implements OnInit {
 
   onSubmit(){
 
+  }
+
+  //eliminar persoanas
+  eliminar(id: number): void {
+    this.userService.deletePerson(id).subscribe(
+      () => {
+        this.messageService.add({ severity: 'warn', summary: 'Notificación', detail: 'Cliente Eliminado', life: 5000 });
+
+        // Actualizar la lista de personas después de la eliminación
+        this.mostrarPersonas();
+      },
+      (err) => {
+        console.log('Error al eliminar la persona', err);
+      }
+    );
   }
 
 }
