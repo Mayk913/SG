@@ -24,7 +24,7 @@ body::-webkit-scrollbar {
     /* overflow:auto; */
   }
   body::-webkit-scrollbar-thumb {
-    background:#5780f1;
+    background:#FF416C;
     border-radius: 4px;
   }
 
@@ -34,7 +34,7 @@ body::-webkit-scrollbar {
     background: #ccc;
 }
 .p-dialog-content::-webkit-scrollbar-thumb  {
-  background:#5780f1;
+  background:#FF416C;
     border-radius: 4px;
 }
 .p-datatable-wrapper::-webkit-scrollbar{
@@ -43,7 +43,7 @@ body::-webkit-scrollbar {
   background: #ccc;
 }
 .p-datatable-wrapper::-webkit-scrollbar-thumb{
-  background:#5780f1;
+  background:#FF416C;
     border-radius: 4px;
 }
 
@@ -54,7 +54,7 @@ body::-webkit-scrollbar {
   }
 
   .p-sidebar-content::-webkit-scrollbar-thumb {
-    background:#5780f1;
+    background:#FF416C;
     border-radius: 4px;
   }
 
