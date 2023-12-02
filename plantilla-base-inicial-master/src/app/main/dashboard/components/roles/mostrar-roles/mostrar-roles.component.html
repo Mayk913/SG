@@ -1,1 +1,25 @@
-<p>mostrar-roles works!</p>
+<p-table [value]="roles">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+            <!-- <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Correo</th> -->
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-roles>
+        <tr>
+            <td>{{roles.id}}</td>
+            <td>{{roles.name}}</td>
+            
+            <td class="botonpadre">
+                <button pButton pRipple icon="pi pi-print" class="boton"></button>
+                <button pButton pRipple icon="pi pi-sync" class="boton"></button>
+                <button pButton pRipple icon="pi pi-eraser" class="boton" ></button>
+            </td>
+           
+        </tr>
+    </ng-template>
+</p-table>

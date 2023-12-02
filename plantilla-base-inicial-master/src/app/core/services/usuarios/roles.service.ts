@@ -15,8 +15,8 @@ export class RolesService {
   API_URI = environment.API_URI;
 
   // API path
-  base_path = `${this.API_URI}/api/role`;
-  base = `${this.API_URI}/api/`;
+  base_path = `${this.API_URI}/roles/`;
+  base = `${this.API_URI}/roles`;
 
   constructor(private http: HttpClient) { }
 
@@ -40,9 +40,9 @@ handleError(res: Response) {
 };
 
 // Get students data
-getRole(): Observable<{roles: RoleI[],rolesUsers:any[]}> {
+getRole(): Observable<RoleI[]> {
   return this.http
-    .get<{roles: RoleI[],rolesUsers:any[]}>(this.base_path)
+    .get<RoleI[]>(this.base_path)
     .pipe(
       retry(0),
       catchError(this.handleError)
