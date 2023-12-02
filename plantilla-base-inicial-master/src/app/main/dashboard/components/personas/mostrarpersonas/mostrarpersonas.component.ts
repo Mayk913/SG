@@ -65,10 +65,12 @@ export class MostrarpersonasComponent implements OnInit {
   eliminar(id: number): void {
     this.userService.deletePerson(id).subscribe(
       () => {
-        this.messageService.add({ severity: 'warn', summary: 'Notificación', detail: 'Cliente Eliminado', life: 5000 });
+        console.log("wngfiedrbgn")
+        
 
         // Actualizar la lista de personas después de la eliminación
         this.mostrarPersonas();
+        this.messageService.add({ severity: 'warn', summary: 'Notificación', detail: 'Rol Eliminado'});
       },
       (err) => {
         console.log('Error al eliminar la persona', err);

@@ -14,9 +14,35 @@
     transition: border-color 0.3s, background 0.3s;
 }
 
-
+.boton:active{
+    border-color: #FF416C;
+}
 .boton:hover {
     /* Estilo cuando el cursor está sobre el botón */
     border-color: #FF416C;
     background: linear-gradient(to right, #FF4B2B, #FF416C);
   }
+
+/* #id{
+    width: 10px;
+} */
+
+/* #ancho_colunmas{
+    width: 30px;
+} */
+
+.card {
+    display: flex;
+    flex-direction: column; /* Cambiar a columna para centrar verticalmente */
+    justify-content: center;
+    align-items: center;
+    max-width: 70%; /* Cambiar a un valor máximo deseado */
+    margin: 0 auto; /* Margen automático a izquierda y derecha para centrar horizontalmente */
+}
+
+/* Estilos adicionales según sea necesario para dispositivos más pequeños */
+@media (max-width: 600px) {
+    .card {
+        max-width: 90%; /* Cambiar a un valor máximo deseado para dispositivos pequeños */
+    }
+}

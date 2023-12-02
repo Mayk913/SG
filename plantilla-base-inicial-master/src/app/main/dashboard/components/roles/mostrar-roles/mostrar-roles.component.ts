@@ -40,5 +40,23 @@ export class MostrarRolesComponent {
       }
     });
   }
+
+  ir_actualizar(){
+    this.router.navigateByUrl('/dashboard/actualizarRoles')
+  }
+
+  eliminar(id: number): void {
+    this.rolesService.eliminarRole(id).subscribe(
+      () => {
+        this.messageService.add({severity:'warn', summary: 'Notificación', detail: 'Rol Eliminado', life: 5000});
+        // Recargar el componente sin recargar toda la aplicación
+        this.mostrarRoles();
+      },
+      err => {
+        console.error('Error al eliminar el rol', err);
+      }
+    );
+  }
+  
   
 }

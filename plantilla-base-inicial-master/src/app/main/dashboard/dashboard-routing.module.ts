@@ -6,6 +6,7 @@ import { ActualizarpersonasComponent } from './components/personas/actualizarper
 import { EliminarpersonasComponent } from './components/personas/eliminarpersonas/eliminarpersonas.component';
 import { MostrarRolesComponent } from './components/roles/mostrar-roles/mostrar-roles.component';
 import { DashboardComponent } from './dashboard.component';
+import { ActualizarRolesComponent } from './components/roles/actualizar-roles/actualizar-roles.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
         {
           path:'mostrarRoles',
           component: MostrarRolesComponent,
+        },
+        {
+          path:'actualizarRoles',
+          component: ActualizarRolesComponent,
         },
         ]
       }
