@@ -4,6 +4,7 @@ import { GeneralComponent } from './components/escritorio/general/general.compon
 import { MostrarpersonasComponent } from './components/personas/mostrarpersonas/mostrarpersonas.component';
 import { ActualizarpersonasComponent } from './components/personas/actualizarpersonas/actualizarpersonas.component';
 import { EliminarpersonasComponent } from './components/personas/eliminarpersonas/eliminarpersonas.component';
+import { MostrarRolesComponent } from './components/roles/mostrar-roles/mostrar-roles.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
         {
           path:'eliminarpersonas',
           component: EliminarpersonasComponent,
+        },
+        {
+          path:'mostrarRoles',
+          component: MostrarRolesComponent,
         },
         ]
       }
