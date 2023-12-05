@@ -17,6 +17,14 @@ import {Message,MessageService} from 'primeng/api';
 export class MostrarRolesComponent {
   public roles:RoleI[] = []
   public displayedColumns: string[] = ["id", "name"]
+  public Dialog = false;
+
+  public form:FormGroup=this.formBuilder.group({
+
+    name: ['', [Validators.required]],
+
+  });
+
   constructor(
     private rolesService: RolesService,
     private formBuilder: FormBuilder,
@@ -26,6 +34,10 @@ export class MostrarRolesComponent {
 
   ngOnInit(): void {
     this.mostrarRoles();
+  }
+
+  openDialog() {
+    this.Dialog = true;
   }
 
   mostrarRoles() {
@@ -58,5 +70,22 @@ export class MostrarRolesComponent {
     );
   }
   
-  
+  onSubmit(): void {
+    const formValue: RoleI = this.form.value;
+    console.log(formValue);
+    this.rolesService.createRole(formValue).subscribe(
+      () => {
+        // console.log('Se ha creado correctamente');
+
+
+        this.mostrarRoles();
+
+      },
+      err => {
+
+        console.log(err);
+        console.log('No se ha creado correctamente');
+      }
+    );
+  }
 }

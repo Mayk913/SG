@@ -78,15 +78,15 @@ export class AuthService {
   // Nueva función para actualizar el menú
   public setMenu(response: listaMenuI[]): void {
 
-    console.log('set menu res: ',response)
+    // console.log('set menu res: ',response)
    
     if (response ) {
       this.menu = createMenu(response);
-      console.log('la funcion esta trabajando')
+      // console.log('la funcion esta trabajando')
     } else {
       console.error('Error al procesar el menú desde la respuesta del backend:', response);
     }
-    console.log('Menú en AuthService:', this.menu);
+    // console.log('Menú en AuthService:', this.menu);
   }
   
 
@@ -133,7 +133,7 @@ export class AuthService {
             // console.log(res)
 
             // localStorage.setItem(KEY_MENU, JSON.stringify(res.menu))
-            console.log('token en el servicio: ',res.data.token)
+            // console.log('token en el servicio: ',res.data.token)
             this.setLoginData(res.data);
             this.userLoginResponse$.next(res);
             this.setLogin(true);

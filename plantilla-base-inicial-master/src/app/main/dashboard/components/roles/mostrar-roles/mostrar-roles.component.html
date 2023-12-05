@@ -1,4 +1,11 @@
 <div class="card">
+    <div class="flex align-items-center justify-content-end ">
+        <a pButton pRipple label="Crear Roles" icon="pi pi-user-plus" style="background-color: #FF416C; border: none;"
+            (click)="openDialog()">
+        </a>
+    
+    
+    </div>
     <p-table [value]="roles"  >
         <ng-template pTemplate="header">
             <tr>
@@ -25,3 +32,24 @@
         </ng-template>
     </p-table>
 </div>
+
+<!------------------------------------ Crear rol -------------------------------->
+
+<p-dialog [(visible)]="Dialog" [style]="{'width': '60vw'}">
+    <h1>Crear Roles</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="width: 48%;">
+                <label for="nombre">Nombre:</label>
+                <input type="text" formControlName="name"><br><br>
+            </div>
+        </div>
+
+        <br>
+        <p-toast></p-toast>
+        <button pButton pRipple type="submit" icon="pi pi-check" label="Guardar cambios"
+            style="background: linear-gradient(to right, #FF4B2B, #FF416C); border-color: #FF416C;"></button>
+    </form>
+
+</p-dialog>

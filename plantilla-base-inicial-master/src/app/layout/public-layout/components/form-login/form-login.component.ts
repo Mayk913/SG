@@ -32,8 +32,8 @@ export class FormLoginComponent implements OnInit {
   ngOnInit(): void {
     const token: string | null = localStorage.getItem('token');
     const user: string | null = localStorage.getItem('user');
-    console.log('token:', token);
-    console.log('user:', user);
+    // console.log('token:', token);
+    // console.log('user:', user);
     if (token !== null && user !== null) {
       console.log('landing');
       this.router.navigateByUrl('/landing');
@@ -48,9 +48,9 @@ export class FormLoginComponent implements OnInit {
     const requestBody = JSON.stringify(form);
 
     this.authService.login(form).subscribe((result) => {
-      console.log(result.data)
+      // console.log(result.data)
       // this.authService.setMenu(result.data.menu);
-      console.log('Menú en el componente:', result.data.menu);
+      
       if (result)
         this.motrar = true;
       if (result && result.data && result.data.user && result.data.user.name && result.data.menu) {

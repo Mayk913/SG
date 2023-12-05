@@ -41,7 +41,7 @@ export let listMenu:listaMenuI[] = [
 ]
 
 export const createMenu = (list: listaMenuI[]) => {
-  console.log('menu() funciona')
+  // console.log('menu() funciona')
   const menuNuevo: menuI = { 
     'menu':[ ]
   }
@@ -106,7 +106,7 @@ export const createMenu = (list: listaMenuI[]) => {
   nuevopadres.forEach((main: any) => {
   
     menuNuevo.menu.push(main)  
-    console.log('menu(): ',menuNuevo.menu)
+    // console.log('menu(): ',menuNuevo.menu)
   });
 
   return menuNuevo.menu;
