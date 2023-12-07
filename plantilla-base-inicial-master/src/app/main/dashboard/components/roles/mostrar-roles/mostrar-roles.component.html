@@ -1,4 +1,6 @@
 <div class="card">
+    <span style="font-size: 20px;  font-weight: 500;">Lista de personas</span>
+    <br/>
     <div class="flex align-items-center justify-content-end ">
         <a pButton pRipple label="Crear Roles" icon="pi pi-user-plus" style="background-color: #FF416C; border: none;"
             (click)="openDialog()">
@@ -6,6 +8,7 @@
     
     
     </div>
+    <br/>
     <p-table [value]="roles"  >
         <ng-template pTemplate="header">
             <tr>
@@ -24,7 +27,7 @@
 
                 <td>
                     <button pButton pRipple icon="pi pi-print" class="boton"></button>
-                    <button pButton pRipple icon="pi pi-sync" class="boton" (click)="ir_actualizar()"></button>
+                    <button pButton pRipple icon="pi pi-sync" class="boton" (click)="ir_actualizar(roles.id)"></button>
                     <button pButton pRipple icon="pi pi-eraser" class="boton" (click)="eliminar(roles.id)"></button>
                 </td>
 
@@ -35,11 +38,11 @@
 
 <!------------------------------------ Crear rol -------------------------------->
 
-<p-dialog [(visible)]="Dialog" [style]="{'width': '60vw'}">
-    <h1>Crear Roles</h1>
+<p-dialog [(visible)]="Dialog" [style]="{'width': '60vw' }">
+    <h1 style="display: flex; justify-content: center;">Crear Roles</h1>
 
     <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
-        <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; justify-content: center;">
             <div style="width: 48%;">
                 <label for="nombre">Nombre:</label>
                 <input type="text" formControlName="name"><br><br>

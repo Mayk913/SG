@@ -51,7 +51,7 @@ export class RolesService {
   // Get single student data by ID
   getOneRole(id: number): Observable<{ role: RoleI; rolesUsers: any[] }> {
     return this.http
-      .get<{ role: RoleI; rolesUsers: any[] }>(this.base_path + '/' + id)
+      .get<{ role: RoleI; rolesUsers: any[] }>(this.base_path  + id)
       .pipe(retry(0), catchError(this.handleError));
   }
 
@@ -127,11 +127,12 @@ export class RolesService {
     //console.log(role,'----------------');
   }
 
-  updateRole(role: RoleI) {
+  updateRole(role: RoleI): Observable<{ role: RoleI }> {
     return this.http
-      .patch(`${this.base_path}/${role.id}`, role)
+      .patch<{ role: RoleI }>(`${this.base_path}${role.id}/`, role, this.httpOptions)
       .pipe(retry(0), catchError(this.handleError));
   }
+  
   eliminarRole(id: number) {
     return this.http
       .delete(`${this.base_path}${id}`)

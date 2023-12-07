@@ -5,7 +5,7 @@ import { RolesService } from 'src/app/core/services/usuarios/roles.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
 
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import {Message,MessageService} from 'primeng/api'; 
 
 
@@ -43,7 +43,7 @@ export class MostrarRolesComponent {
   mostrarRoles() {
     this.rolesService.getRole().subscribe({
       next: (data) => {
-        console.log('rol1: ',data); // Asegúrate de que data contenga los roles
+        //console.log('rol1: ',data); // Asegúrate de que data contenga los roles
         this.roles = data;
         console.log('roles en el componente: ',this.roles);
       },
@@ -53,9 +53,10 @@ export class MostrarRolesComponent {
     });
   }
 
-  ir_actualizar(){
-    this.router.navigateByUrl('/dashboard/actualizarRoles')
+  ir_actualizar(id: number) {
+    this.router.navigateByUrl(`/dashboard/actualizarRoles?id=${id}`);
   }
+  
 
   eliminar(id: number): void {
     this.rolesService.eliminarRole(id).subscribe(
