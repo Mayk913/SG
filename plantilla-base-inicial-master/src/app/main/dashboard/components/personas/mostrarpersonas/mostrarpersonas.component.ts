@@ -70,7 +70,7 @@ export class MostrarpersonasComponent implements OnInit {
 
         // Actualizar la lista de personas después de la eliminación
         this.mostrarPersonas();
-        this.messageService.add({ severity: 'warn', summary: 'Notificación', detail: 'Rol Eliminado'});
+        this.messageService.add({ severity: 'warn', summary: 'Notificación', detail: 'Persona Eliminado'});
       },
       (err) => {
         console.log('Error al eliminar la persona', err);

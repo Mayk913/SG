@@ -54,14 +54,15 @@ export class MostrarRolesComponent {
   }
 
   ir_actualizar(id: number) {
-    this.router.navigateByUrl(`/dashboard/actualizarRoles?id=${id}`);
+    this.router.navigateByUrl(`actualizarRoles/${id}`);
   }
   
-
+  
+/*===================================METODO ELIMINAR==============================*/
   eliminar(id: number): void {
     this.rolesService.eliminarRole(id).subscribe(
       () => {
-        this.messageService.add({severity:'warn', summary: 'Notificación', detail: 'Rol Eliminado', life: 5000});
+        this.messageService.add({severity:'warn', summary: 'Notificación', detail: 'Rol Eliminado'});
         // Recargar el componente sin recargar toda la aplicación
         this.mostrarRoles();
       },
@@ -78,7 +79,7 @@ export class MostrarRolesComponent {
       () => {
         // console.log('Se ha creado correctamente');
 
-
+        this.messageService.add({severity:'success', summary: 'Success', detail: 'Rol Creado con exito'});
         this.mostrarRoles();
 
       },

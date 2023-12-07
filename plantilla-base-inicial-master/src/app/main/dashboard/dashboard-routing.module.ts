@@ -35,7 +35,7 @@ const routes: Routes = [
           component: MostrarRolesComponent,
         },
         {
-          path:'actualizarRoles',
+          path:'actualizarRoles/:id',
           component: ActualizarRolesComponent,
           pathMatch: 'full'
         },
