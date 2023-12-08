@@ -1,1 +1,36 @@
-<p>mostrarusuarios works!</p>
+<span>Lista de Usuarios</span>
+<br />
+<br />
+<div class="flex align-items-center justify-content-end ">
+    <a pButton pRipple label="Crear Usuarios" icon="pi pi-user-plus" style="background-color: #FF416C; border: none;"
+        (click)="openDialog()">
+    </a>
+
+
+</div>
+<br />
+
+<p-table [value]="usuarios" [styleClass]="'tabla'">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Nombre de usuario</th>
+            <th>Email</th>
+            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-usuario>
+        <tr>
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.username}}</td>
+            <td>{{usuario.email}}</td>
+            
+            <td>
+                <button pButton pRipple icon="pi pi-print" class="boton" [ngClass]="{'boton':true}"></button>
+                <button pButton pRipple icon="pi pi-sync" class="boton"></button>
+                <button pButton pRipple icon="pi pi-eraser" class="boton" (click)="eliminar(usuario.id)" ></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-toast></p-toast>

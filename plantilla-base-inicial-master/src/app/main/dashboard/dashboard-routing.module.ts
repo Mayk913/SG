@@ -7,6 +7,7 @@ import { EliminarpersonasComponent } from './components/personas/eliminarpersona
 import { MostrarRolesComponent } from './components/roles/mostrar-roles/mostrar-roles.component';
 import { DashboardComponent } from './dashboard.component';
 import { ActualizarRolesComponent } from './components/roles/actualizar-roles/actualizar-roles.component';
+import { MostrarusuariosComponent } from './components/usuarios/mostrarusuarios/mostrarusuarios.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
           path:'actualizarRoles/:id',
           component: ActualizarRolesComponent,
           pathMatch: 'full'
+        },
+        {
+          path:'mostrarUsuarios',
+          component: MostrarusuariosComponent,
         },
         ]
       }

@@ -40,13 +40,13 @@ export class UserService {
     return throwError(error.error);
   }
   // Get students data
-  getUser(): Observable<{ users: UserI[]; rolesUsers: any[] }> {
+  getUser(): Observable< UserI[] > {
     let token: string | null = localStorage.getItem('token');
     let user: string | null = localStorage.getItem('user');
     if (token != null && user != null) {
       let userObjeto: any = JSON.parse(user);
       return this.http
-        .get<{ users: UserI[]; rolesUsers: any[] }>(this.base_path, {
+        .get< UserI[] >(this.API_URI+'/users', {
           headers: new HttpHeaders({
             'Content-Type': 'application/json',
             'x-token': token,
@@ -56,7 +56,7 @@ export class UserService {
         .pipe(retry(0), catchError(this.handleError));
     } else {
       return this.http
-        .get<{ users: UserI[]; rolesUsers: any[] }>(this.base_path)
+        .get< UserI[] >(this.API_URI+'/users')
         .pipe(retry(0), catchError(this.handleError));
     }
   }

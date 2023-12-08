@@ -39,7 +39,7 @@ export class MostrarpersonasComponent implements OnInit {
     private formBuilder: FormBuilder,
     private messageService: MessageService,
     private router: Router,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.mostrarPersonas();
