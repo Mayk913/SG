@@ -51,6 +51,7 @@ import { EliminarRolesComponent } from './components/roles/eliminar-roles/elimin
 import { MostrarRecursosComponent } from './components/recursos/mostrar-recursos/mostrar-recursos.component';
 import { ActualizarRecursosComponent } from './components/recursos/actualizar-recursos/actualizar-recursos.component';
 import { EliminarRecursosComponent } from './components/recursos/eliminar-recursos/eliminar-recursos.component';
+import { AsignarRolesComponent } from './components/roles/asignar-roles/asignar-roles.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { EliminarRecursosComponent } from './components/recursos/eliminar-recurs
     MostrarRecursosComponent,
     ActualizarRecursosComponent,
     EliminarRecursosComponent,
+    AsignarRolesComponent,
   ],
   imports: [
     CommonModule,
