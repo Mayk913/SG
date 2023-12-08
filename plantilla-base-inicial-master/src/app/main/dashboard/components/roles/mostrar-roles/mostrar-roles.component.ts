@@ -81,6 +81,7 @@ export class MostrarRolesComponent {
 
         this.messageService.add({severity:'success', summary: 'Success', detail: 'Rol Creado con exito'});
         this.mostrarRoles();
+        this.Dialog=false;
 
       },
       err => {
