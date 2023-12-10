@@ -119,16 +119,38 @@ export class AsignarRolesComponent {
           (data) => {
             // Maneja la respuesta según lo que necesites
             console.log('Asignación exitosa:', data);
+            this.getUserRoles();
+            this.Dialog=false;
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Asignación exitosa',
+            });
           },
           (error) => {
             console.error('Error al asignar roles:', error);
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `Error al asignar roles. ${error.error.dataErros[0].message}`,
+            });
           }
         );
       } else {
         console.error('Debe seleccionar al menos un usuario y un rol.');
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Warn',
+          detail: 'Debe seleccionar al menos un usuario y un rol.',
+        });
       }
     } else {
       console.error('Formulario no válido. Verifica los campos.');
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Warn',
+        detail: 'Formulario no válido. Verifica los campos.',
+      });
     }
   }
   
