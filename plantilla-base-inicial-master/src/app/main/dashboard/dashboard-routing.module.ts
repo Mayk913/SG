@@ -8,6 +8,7 @@ import { MostrarRolesComponent } from './components/roles/mostrar-roles/mostrar-
 import { DashboardComponent } from './dashboard.component';
 import { ActualizarRolesComponent } from './components/roles/actualizar-roles/actualizar-roles.component';
 import { MostrarusuariosComponent } from './components/usuarios/mostrarusuarios/mostrarusuarios.component';
+import { AsignarRolesComponent } from './components/roles/asignar-roles/asignar-roles.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
           path:'actualizarRoles/:id',
           component: ActualizarRolesComponent,
           pathMatch: 'full'
+        },
+        {
+          path:'asignarRoles',
+          component: AsignarRolesComponent,
         },
         {
           path:'mostrarUsuarios',

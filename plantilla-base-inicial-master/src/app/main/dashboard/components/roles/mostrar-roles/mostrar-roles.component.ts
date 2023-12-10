@@ -40,6 +40,8 @@ export class MostrarRolesComponent {
     this.Dialog = true;
   }
 
+
+  /*===================================METODO MOSTRAR==============================*/
   mostrarRoles() {
     this.rolesService.getRole().subscribe({
       next: (data) => {
