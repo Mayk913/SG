@@ -39,6 +39,14 @@ export class UserService {
     };
     return throwError(error.error);
   }
+
+  /*======================Obtener usuarios=========================*/
+  getUsers(): Observable<UserI[]> {
+    return this.http.get<UserI[]>(`${this.base_path_user}`);
+  }
+
+
+
   // Get students data
   getUser(): Observable< UserI[] > {
     let token: string | null = localStorage.getItem('token');
