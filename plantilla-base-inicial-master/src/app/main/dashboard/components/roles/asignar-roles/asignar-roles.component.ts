@@ -37,9 +37,8 @@ export class AsignarRolesComponent {
 
   public form:FormGroup=this.formBuilder.group({
 
-    name: ['', [Validators.required]],
-    SelectedRoles: ['', [Validators.required]],
-    SelectedUsers: ['', [Validators.required]],
+    rolesId: ['', [Validators.required]],
+    userId: ['', [Validators.required]],
 
   });
 
@@ -96,8 +95,44 @@ export class AsignarRolesComponent {
 
   }
 
-  onSubmit(){
-
+  onSubmit() {
+    if (this.form.valid) {
+      const selectedUsers = this.form.get('userId')?.value;
+      const selectedRoles = this.form.get('rolesId')?.value;
+      
+      // Extraer la primera ID seleccionada
+      const userId = selectedUsers.length > 0 ? selectedUsers[0].code : null;
+      const rolesId = selectedRoles.length > 0 ? selectedRoles[0].code : null;
+  
+      // Verifica que haya usuarios y roles seleccionados
+      if (userId && rolesId) {
+        console.log('User ID:', userId);
+        console.log('Role ID:', rolesId);
+  
+        const rolesAssignment = {
+          userId: userId,
+          rolesId: rolesId,
+        };
+  
+        // Llama al servicio con los datos correctos
+        this.rolesService.assinRole(rolesAssignment).subscribe(
+          (data) => {
+            // Maneja la respuesta según lo que necesites
+            console.log('Asignación exitosa:', data);
+          },
+          (error) => {
+            console.error('Error al asignar roles:', error);
+          }
+        );
+      } else {
+        console.error('Debe seleccionar al menos un usuario y un rol.');
+      }
+    } else {
+      console.error('Formulario no válido. Verifica los campos.');
+    }
   }
+  
+  
+  
   
 }

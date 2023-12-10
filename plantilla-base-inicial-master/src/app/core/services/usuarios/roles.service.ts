@@ -66,34 +66,37 @@ export class RolesService {
       .pipe(retry(0), catchError(this.handleError));
   }
 
-  assinRole(role: assinRoleUserI): Observable<{ role: assinRoleUserI }> {
-    let token: string | null = localStorage.getItem('token');
-    let userT: string | null = localStorage.getItem('user');
+  assinRole(assignment: { userId: number, rolesId: number }): Observable<{ role: assinRoleUserI }> {
+    const token: string | null = localStorage.getItem('token');
+    const userT: string | null = localStorage.getItem('user');
+  
     if (token != null && userT != null) {
-      let userObjeto: any = JSON.parse(userT);
-      let httpOptions = {
+      const userObjeto: any = JSON.parse(userT);
+      const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           'x-token': token,
           user: userObjeto.id,
         }),
       };
+  
       return this.http
         .post<{ role: assinRoleUserI }>(
-          this.base + 'assinRole',
-          JSON.stringify(role),
+          this.base + '/user-rol/',
+          JSON.stringify(assignment),
           httpOptions
         )
         .pipe(retry(0), catchError(this.handleError));
     } else {
       return this.http
         .post<{ role: assinRoleUserI }>(
-          this.base + 'assinRole',
-          JSON.stringify(role)
+          this.base + '/user-rol/',
+          JSON.stringify(assignment)
         )
         .pipe(retry(0), catchError(this.handleError));
     }
   }
+  
 
   assinRoleResource(
     array: assinRoleResourceI
