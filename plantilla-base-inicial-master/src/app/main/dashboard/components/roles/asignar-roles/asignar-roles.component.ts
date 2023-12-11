@@ -57,8 +57,8 @@ export class AsignarRolesComponent {
     this.rolesService.getUserRolesData().subscribe(
       (data) => {
         this.roles = data;
-        console.log('user-rolget(): ', data);
-        console.log(this.roles)
+        // console.log('user-rolget(): ', data);
+        // console.log(this.roles)
       },
       error => {
         console.error('Error obteniendo datos desde el backend', error);
@@ -70,7 +70,7 @@ export class AsignarRolesComponent {
     this.rolesService.getRole().subscribe(
       (data: RoleI[]) => {
         this.roles2 = data;
-        console.log('funicona')
+        // console.log('funicona')
 
         // Crea el array de ciudades (nombres de roles) para el p-multiSelect
         this.rol_op = this.roles2.map(role => ({ name: role.name, code: role.id }));
