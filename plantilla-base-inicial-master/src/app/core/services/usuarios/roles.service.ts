@@ -65,7 +65,7 @@ export class RolesService {
       )
       .pipe(retry(0), catchError(this.handleError));
   }
-
+  //adignar rol
   assinRole(assignment: { userId: number, rolesId: number }): Observable<{ role: assinRoleUserI }> {
     const token: string | null = localStorage.getItem('token');
     const userT: string | null = localStorage.getItem('user');
