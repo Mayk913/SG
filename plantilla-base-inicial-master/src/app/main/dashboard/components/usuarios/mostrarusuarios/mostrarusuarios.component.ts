@@ -36,7 +36,7 @@ export class MostrarusuariosComponent {
   }
 
   mostrarUsuarios() {
-    this.userService.getUser().subscribe({
+    this.userService.getUsers().subscribe({
       next: (data) => {
         this.usuarios = data;
         console.log('usuarios: ',this.usuarios);
