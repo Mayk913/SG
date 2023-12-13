@@ -47,8 +47,17 @@ export class MostrarusuariosComponent {
     this.Dialog = true;
   }
 
-  eliminar(id:number){
-
+  eliminar(id: number): void {
+    this.userService.eliminarUser(id).subscribe(
+      () => {
+        this.messageService.add({severity:'warn', summary: 'Notificación', detail: 'Usuario Eliminado'});
+        // Recargar el componente sin recargar toda la aplicación
+        this.mostrarUsuarios();
+      },
+      err => {
+        console.error('Error al eliminar el usuario', err);
+      }
+    );
   }
 
 }
