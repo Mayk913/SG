@@ -83,7 +83,7 @@ updateResource(resource:ResourceI){
 
 }
 eliminarResource(id:number){
-  return this.http.delete(`${this.base_path}/${id}`).pipe(
+  return this.http.delete(`${this.base_path}${id}`).pipe(
     retry(0),
     catchError(this.handleError)
   )

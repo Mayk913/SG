@@ -38,10 +38,10 @@ export class MostrarRecursosComponent {
   }
 
   ngOnInit(): void {
-    this.mostrarRoles();
+    this.mostrarRecusos();
   }
 
-  mostrarRoles() {
+  mostrarRecusos() {
     this.resourcesService.getResource().subscribe({
       next: (data) => {
         //console.log('rol1: ',data); // Asegúrate de que data contenga los roles
@@ -52,7 +52,20 @@ export class MostrarRecursosComponent {
       }
     });
   }
-
+  /*===================================METODO ELIMINAR==============================*/
+  eliminar(id: number): void {
+    this.resourcesService.eliminarResource(id).subscribe({
+      next: () => {
+        this.messageService.add({ severity: 'warn', summary: 'Notificación', detail: 'Rol Eliminado' });
+        // Recargar el componente sin recargar toda la aplicación
+        this.mostrarRecusos();
+      },
+      error: (err) => {
+        console.error('Error al eliminar el rol', err);
+      }
+    });
+  }
+  
   onSubmit(){}
 
 }
