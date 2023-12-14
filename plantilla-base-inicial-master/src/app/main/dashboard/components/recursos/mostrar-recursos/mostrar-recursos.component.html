@@ -2,7 +2,7 @@
     <span style="font-size: 20px;  font-weight: 500;">Lista de Recursos</span>
     <br/>
     <div class="flex align-items-center justify-content-end ">
-        <a pButton pRipple label="Crear Roles" icon="pi pi-user-plus" style="background-color: #FF416C; border: none;"
+        <a pButton pRipple label="Crear Recurso" icon="pi pi-user-plus" style="background-color: #FF416C; border: none;"
             (click)="openDialog()">
         </a>
     
@@ -50,7 +50,7 @@
 <!------------------------------------ Crear rol -------------------------------->
 
 <p-dialog [(visible)]="Dialog" [style]="{'width': '60vw' }">
-    <h1 style="display: flex; justify-content: center;">Crear Roles</h1>
+    <h1 style="display: flex; justify-content: center;">Crear Recurso</h1>
 
     <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
         <div style="display: flex; justify-content: center;">
