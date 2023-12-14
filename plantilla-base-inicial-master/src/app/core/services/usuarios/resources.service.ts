@@ -37,9 +37,9 @@ handleError(res: Response) {
 
 };
 // Get students data
-getResource(): Observable<{resources: ResourceI[]}> {
+getResource(): Observable< ResourceI[]> {
   return this.http
-    .get<{resources: ResourceI[]}>(this.base_path)
+    .get< ResourceI[]>(this.base_path)
     .pipe(
       retry(0),
       catchError(this.handleError)

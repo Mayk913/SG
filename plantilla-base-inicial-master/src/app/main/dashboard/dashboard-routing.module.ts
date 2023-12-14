@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard.component';
 import { ActualizarRolesComponent } from './components/roles/actualizar-roles/actualizar-roles.component';
 import { MostrarusuariosComponent } from './components/usuarios/mostrarusuarios/mostrarusuarios.component';
 import { AsignarRolesComponent } from './components/roles/asignar-roles/asignar-roles.component';
+import { MostrarRecursosComponent } from './components/recursos/mostrar-recursos/mostrar-recursos.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
         {
           path:'mostrarUsuarios',
           component: MostrarusuariosComponent,
+        },
+        {
+          path:'mostrarRecursos',
+          component: MostrarRecursosComponent,
         },
         ]
       }
