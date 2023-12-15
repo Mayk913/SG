@@ -11,6 +11,7 @@ import { MostrarusuariosComponent } from './components/usuarios/mostrarusuarios/
 import { AsignarRolesComponent } from './components/roles/asignar-roles/asignar-roles.component';
 import { MostrarRecursosComponent } from './components/recursos/mostrar-recursos/mostrar-recursos.component';
 import { AsignarRecursosComponent } from './components/recursos/asignar-recursos/asignar-recursos.component';
+import { ActualizarRecursosComponent } from './components/recursos/actualizar-recursos/actualizar-recursos.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
         {
           path:'asignarRecursos',
           component: AsignarRecursosComponent,
+        },
+        {
+          path:'actualizarRecursos/:id',
+          component: ActualizarRecursosComponent,
         },
         ]
       }

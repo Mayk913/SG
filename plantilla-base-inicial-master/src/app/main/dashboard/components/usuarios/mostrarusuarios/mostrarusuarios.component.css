@@ -21,3 +21,7 @@
     border-color: #FF416C;
     background: linear-gradient(to right, #FF4B2B, #FF416C);
   }
+span{
+    font-size: 20px;
+    font-weight: 500;
+}

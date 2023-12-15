@@ -73,4 +73,8 @@ export class MostrarRecursosComponent {
   
   onSubmit(){}
 
+  ir_actualizar(id: number) {
+    this.router.navigate([`/dashboard/actualizarRecursos/${id}`]);
+  }
+
 }

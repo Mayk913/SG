@@ -30,7 +30,10 @@
 /* #ancho_colunmas{
     width: 30px;
 } */
-
+span{
+    font-size: 20px;
+    font-weight: 500;
+}
 .card {
     display: flex;
     flex-direction: column; /* Cambiar a columna para centrar verticalmente */

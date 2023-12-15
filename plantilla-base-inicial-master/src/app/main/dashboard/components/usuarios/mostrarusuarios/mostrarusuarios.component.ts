@@ -39,7 +39,7 @@ export class MostrarusuariosComponent {
     this.userService.getUsers().subscribe({
       next: (data) => {
         this.usuarios = data;
-        console.log('usuarios: ',this.usuarios);
+        // console.log('usuarios: ',this.usuarios);
       }
     });
   }
