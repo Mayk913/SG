@@ -96,14 +96,13 @@ export class ResourcesService {
     );
   }
 
-  createRoleResource(
-    resource: assinRoleResourceI
-  ): Observable<assinRoleResourceI> {
+  createRoleResource(assignment: any): Observable<assinRoleResourceI> {
     return this.http.post<assinRoleResourceI>(
       `${this.base_path}resource-rol/`,
-      resource
+      assignment
     );
   }
+  
 
   updateRoleResource(
     id: number,

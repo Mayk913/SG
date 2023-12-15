@@ -48,7 +48,67 @@ export class AsignarRecursosComponent {
     this.getResouceRoles();
   }
 
-  onSubmit(){}
+  onSubmit() {
+    if (this.form.valid) {
+      const selectedRoles = this.form.get('role_Id')?.value;
+      const selectedResources = this.form.get('resource_Id')?.value;
+  
+      // Extraer la primera ID seleccionada
+      const role_Id = selectedRoles.length > 0 ? selectedRoles[0].code : null;
+      const resource_Id = selectedResources.length > 0 ? selectedResources[0].code : null;
+  
+      // Verifica que haya roles y recursos seleccionados
+      if (role_Id && resource_Id) {
+        console.log('Role ID:', role_Id);
+        console.log('Resource ID:', resource_Id);
+  
+        const resourceRoleAssignment = {
+          resource_id: resource_Id,
+          role_id: role_Id,
+        };
+        
+  
+        // Llama al servicio con los datos correctos
+        this.resourcesService.createRoleResource(resourceRoleAssignment).subscribe(
+          (data) => {
+            // Maneja la respuesta según lo que necesites
+            console.log('Asignación exitosa:', data);
+            this.getResouceRoles();
+            this.Dialog = false;
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Asignación exitosa',
+            });
+          },
+          (error) => {
+            console.error('Error al asignar recursos a roles:', error);
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `Error al asignar recursos a roles. ${error.error.dataErros[0].message}`,
+            });
+          }
+        );
+      } else {
+        console.error('Debe seleccionar al menos un rol y un recurso.');
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Warn',
+          detail: 'Debe seleccionar al menos un rol y un recurso.',
+        });
+      }
+    } else {
+      console.error('Formulario no válido. Verifica los campos.');
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Warn',
+        detail: 'Formulario no válido. Verifica los campos.',
+      });
+    }
+  }
+  
+  
 
 
   getResouceRoles() {
@@ -56,7 +116,7 @@ export class AsignarRecursosComponent {
       (data) => {
         this.rolresource = data;
         // console.log('user-rolget(): ', data);
-        console.log('getResouceRoles: ',this.rolresource)
+        // console.log('getResouceRoles: ',this.rolresource)
       },
       error => {
         console.error('Error obteniendo datos desde el backend', error);
@@ -66,7 +126,8 @@ export class AsignarRecursosComponent {
 
 
 
-  /*==========Funcion para oobtener la lista de recursos asignados a roles============*/ 
+  /*==========Funcion para oobtener las opciones para crear asignaciones de 
+  ==========================recursos a roles============*/ 
   getResourceRolOptions(){ 
     this.rolesService.getRole().subscribe(
       (data: RoleI[]) => {
@@ -85,7 +146,7 @@ export class AsignarRecursosComponent {
       next: (data) => {
         //console.log('rol1: ',data); // Asegúrate de que data contenga los roles
         this.recursos = data;
-        console.log('get recursos',this.recursos)
+        // console.log('get recursos',this.recursos)
         this.resource_op = this.recursos.map(recurso => ({ title: recurso.title, code: recurso.id }));
       },
       error: (error) => {
