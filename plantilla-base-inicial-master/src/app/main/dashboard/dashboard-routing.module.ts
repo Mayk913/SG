@@ -10,6 +10,7 @@ import { ActualizarRolesComponent } from './components/roles/actualizar-roles/ac
 import { MostrarusuariosComponent } from './components/usuarios/mostrarusuarios/mostrarusuarios.component';
 import { AsignarRolesComponent } from './components/roles/asignar-roles/asignar-roles.component';
 import { MostrarRecursosComponent } from './components/recursos/mostrar-recursos/mostrar-recursos.component';
+import { AsignarRecursosComponent } from './components/recursos/asignar-recursos/asignar-recursos.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
         {
           path:'mostrarRecursos',
           component: MostrarRecursosComponent,
+        },
+        {
+          path:'asignarRecursos',
+          component: AsignarRecursosComponent,
         },
         ]
       }
