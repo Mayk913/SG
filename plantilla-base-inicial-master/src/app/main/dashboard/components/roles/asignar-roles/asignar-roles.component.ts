@@ -154,7 +154,18 @@ export class AsignarRolesComponent {
     }
   }
   
-  
+  eliminar(id: number): void {
+    this.rolesService.eliminarUserRol(id).subscribe(
+      () => {
+        this.messageService.add({severity:'warn', summary: 'Notificación', detail: 'Rol Eliminado'});
+        // Recargar el componente sin recargar toda la aplicación
+        this.getUserRoles();
+      },
+      err => {
+        console.error('Error al eliminar el rol', err);
+      }
+    );
+  }
   
   
 }

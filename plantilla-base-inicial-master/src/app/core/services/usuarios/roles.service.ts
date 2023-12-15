@@ -145,4 +145,12 @@ export class RolesService {
   getUserRolesData(): Observable<any> {
     return this.http.get<any>(`${this.base_path}user-rol/`);
   }
+
+
+  eliminarUserRol(id: number): Observable<any> {
+    
+    return this.http
+      .delete<any>(`${this.base}/user-rol/${id}/`)
+      .pipe(retry(0), catchError(this.handleError));
+  }
 }
