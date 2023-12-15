@@ -147,8 +147,7 @@ export class RolesService {
   }
 
 
-  eliminarUserRol(id: number): Observable<any> {
-    
+  eliminarUserRol(id: number){
     return this.http
       .delete<any>(`${this.base}/user-rol/${id}/`)
       .pipe(retry(0), catchError(this.handleError));
