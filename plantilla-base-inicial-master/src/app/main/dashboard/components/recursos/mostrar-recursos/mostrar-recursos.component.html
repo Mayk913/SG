@@ -55,8 +55,37 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
         <div style="display: flex; justify-content: center;">
             <div style="width: 48%;">
-                <label for="nombre">Nombre:</label>
-                <input type="text" formControlName="name"><br><br>
+                <span class="p-float-label">
+                    <input pInputText id="path" formControlName="path" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="path">Path</label>
+                </span><br><br>
+
+                <span class="p-float-label">
+                    <input pInputText id="id_parent" formControlName="id_parent" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="id_parent">Id_parent</label>
+                  </span><br><br>
+
+                  <span class="p-float-label">
+                    <input pInputText id="method" formControlName="method" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="method">Method</label>
+                  </span><br><br>
+            </div>
+
+            <div style="width: 48%;">
+                <span class="p-float-label">
+                    <input pInputText id="icon" formControlName="icon" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="icon">Icono</label>
+                  </span><br><br>
+
+                  <span class="p-float-label">
+                    <input pInputText id="link" formControlName="link" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="link">Link</label>
+                  </span><br><br>
+
+                  <span class="p-float-label">
+                    <input pInputText id="title" formControlName="title" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="title">Titulo</label>
+                  </span><br><br>
             </div>
         </div>
 
