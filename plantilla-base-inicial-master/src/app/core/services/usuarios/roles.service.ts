@@ -130,6 +130,8 @@ export class RolesService {
     //console.log(role,'----------------');
   }
 
+
+  /*=================================User-Rol CRUD=========================================*/
   updateRole(role: RoleI): Observable<{ role: RoleI }> {
     return this.http
       .patch<{ role: RoleI }>(`${this.base_path}${role.id}/`, role, this.httpOptions)
@@ -152,4 +154,6 @@ export class RolesService {
       .delete<any>(`${this.base}/user-rol/${id}/`)
       .pipe(retry(0), catchError(this.handleError));
   }
+
+  /*=============================================================================== */
 }

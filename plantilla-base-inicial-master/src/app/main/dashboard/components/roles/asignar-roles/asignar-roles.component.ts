@@ -58,7 +58,7 @@ export class AsignarRolesComponent {
       (data) => {
         this.roles = data;
         // console.log('user-rolget(): ', data);
-        // console.log(this.roles)
+        console.log('getUserRoles: ',this.roles)
       },
       error => {
         console.error('Error obteniendo datos desde el backend', error);
