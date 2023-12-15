@@ -21,7 +21,12 @@ export class MostrarRecursosComponent {
 
   public form:FormGroup=this.formBuilder.group({
 
-    name: ['', [Validators.required]],
+    path: ['', [Validators.required]],
+    id_parent: ['', [Validators.required]],
+    method: ['', [Validators.required]],
+    icon: ['', [Validators.required]],
+    link: ['', [Validators.required]],
+    title: ['', [Validators.required]],
 
   });
 
