@@ -30,16 +30,13 @@
 /* #ancho_colunmas{
     width: 30px;
 } */
-span{
-    font-size: 20px;
-    font-weight: 500;
-}
+
 .card {
     display: flex;
     flex-direction: column; /* Cambiar a columna para centrar verticalmente */
     justify-content: center;
     align-items: center;
-    max-width: 70%; /* Cambiar a un valor máximo deseado */
+    /* max-width: 80%; Cambiar a un valor máximo deseado */
     margin: 0 auto; /* Margen automático a izquierda y derecha para centrar horizontalmente */
 }
 

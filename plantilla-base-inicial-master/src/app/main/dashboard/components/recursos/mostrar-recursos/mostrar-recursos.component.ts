@@ -6,37 +6,41 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from 'primeng/dynamicdialog';
 
 import { Router, NavigationExtras } from '@angular/router';
-import {Message,MessageService} from 'primeng/api'; 
-
+import { Message, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-mostrar-recursos',
   templateUrl: './mostrar-recursos.component.html',
-  styleUrls: ['./mostrar-recursos.component.css']
+  styleUrls: ['./mostrar-recursos.component.css'],
 })
 export class MostrarRecursosComponent {
-  public recursos: ResourceI[]=[];
-  public displayedColumns: string[] = ["id", "path","id_parent","method", "icon", "link", "title"]
+  public recursos: ResourceI[] = [];
+  public displayedColumns: string[] = [
+    'id',
+    'path',
+    'id_parent',
+    'method',
+    'icon',
+    'link',
+    'title',
+  ];
   public Dialog = false;
 
-  public form:FormGroup=this.formBuilder.group({
-
+  public form: FormGroup = this.formBuilder.group({
     path: ['', [Validators.required]],
     id_parent: ['', [Validators.required]],
     method: ['', [Validators.required]],
     icon: ['', [Validators.required]],
     link: ['', [Validators.required]],
     title: ['', [Validators.required]],
-
   });
 
   constructor(
     private resourcesService: ResourcesService,
     private formBuilder: FormBuilder,
     private messageService: MessageService,
-    private router: Router,
-  ) { }
-
+    private router: Router
+  ) {}
 
   openDialog() {
     this.Dialog = true;
@@ -53,28 +57,49 @@ export class MostrarRecursosComponent {
         this.recursos = data;
       },
       error: (error) => {
-        console.error('Error al obtener roles:', error);
-      }
+        console.error('Error al obtener recursos:', error);
+      },
     });
   }
   /*===================================METODO ELIMINAR==============================*/
   eliminar(id: number): void {
     this.resourcesService.eliminarResource(id).subscribe({
       next: () => {
-        this.messageService.add({ severity: 'warn', summary: 'Notificación', detail: 'Rol Eliminado' });
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Notificación',
+          detail: 'Recurso Eliminado',
+        });
         // Recargar el componente sin recargar toda la aplicación
         this.mostrarRecusos();
       },
       error: (err) => {
-        console.error('Error al eliminar el rol', err);
-      }
+        console.error('Error al eliminar el recurso', err);
+      },
     });
   }
-  
-  onSubmit(){}
+
+  onSubmit(): void {
+    const formValue: ResourceI = this.form.value;
+    console.log(formValue);
+    this.resourcesService.createResource(formValue).subscribe(
+      () => {
+        // console.log('Se ha creado correctamente');
+
+        this.messageService.add({severity:'success', summary: 'Success', detail: 'Recurso creado con exito'});
+        this.mostrarRecusos();
+        this.Dialog=false;
+
+      },
+      err => {
+
+        console.log(err);
+        console.log('No se ha creado correctamente');
+      }
+    );
+  }
 
   ir_actualizar(id: number) {
     this.router.navigate([`/dashboard/actualizarRecursos/${id}`]);
   }
-
 }
