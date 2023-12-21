@@ -82,24 +82,36 @@ export class MostrarRecursosComponent {
   onSubmit(): void {
     const formValue: ResourceI = this.form.value;
     console.log(formValue);
-    this.resourcesService.createResource(formValue).subscribe(
-      () => {
-        // console.log('Se ha creado correctamente');
 
-        this.messageService.add({severity:'success', summary: 'Success', detail: 'Recurso creado con exito'});
+    this.resourcesService.createResource(formValue).subscribe({
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Recurso creado con éxito',
+        });
         this.mostrarRecusos();
-        this.Dialog=false;
-
+        this.Dialog = false;
       },
-      err => {
-
-        console.log(err);
+      error: (err) => {
+        console.error(err);
         console.log('No se ha creado correctamente');
-      }
-    );
+      },
+    });
   }
 
+  // private handleSuccess(): void {
+  //   this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Recurso creado con éxito' });
+  //   this.mostrarRecusos();
+  //   this.Dialog = false;
+  // }
+
+  // private handleError(error: any): void {
+  //   console.error(error);
+  //   console.log('No se ha creado correctamente');
+  // }
+
   ir_actualizar(id: number) {
-    this.router.navigate([`/dashboard/actualizarRecursos/${id}`]);
+    this.router.navigateByUrl(`/dashboard/actualizarRecursos/${id}`);
   }
 }

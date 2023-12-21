@@ -49,7 +49,7 @@ export class ResourcesService {
   // Get single student data by ID
   getOneResource(id: number): Observable<{ resource: ResourceI }> {
     return this.http
-      .get<{ resource: ResourceI }>(this.base_path + '/' + id)
+      .get<{ resource: ResourceI }>(this.base_path+ id)
       .pipe(retry(0), catchError(this.handleError));
   }
 
@@ -74,7 +74,7 @@ export class ResourcesService {
 
   updateResource(resource: ResourceI) {
     return this.http
-      .patch(`${this.base_path}/${resource.id}`, resource)
+      .patch(`${this.base_path}${resource.id}`, resource)
       .pipe(retry(0), catchError(this.handleError));
   }
   eliminarResource(id: number) {
