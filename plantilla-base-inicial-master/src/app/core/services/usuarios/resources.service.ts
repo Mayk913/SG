@@ -74,7 +74,7 @@ export class ResourcesService {
 
   updateResource(resource: ResourceI) {
     return this.http
-      .patch(`${this.base_path}${resource.id}`, resource)
+      .patch(`${this.base_path}${resource.id}/`, resource)
       .pipe(retry(0), catchError(this.handleError));
   }
   eliminarResource(id: number) {
