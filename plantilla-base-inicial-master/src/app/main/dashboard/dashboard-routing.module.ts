@@ -12,6 +12,7 @@ import { AsignarRolesComponent } from './components/roles/asignar-roles/asignar-
 import { MostrarRecursosComponent } from './components/recursos/mostrar-recursos/mostrar-recursos.component';
 import { AsignarRecursosComponent } from './components/recursos/asignar-recursos/asignar-recursos.component';
 import { ActualizarRecursosComponent } from './components/recursos/actualizar-recursos/actualizar-recursos.component';
+import { ActualizarusuariosComponent } from './components/usuarios/actualizarusuarios/actualizarusuarios.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
         {
           path:'mostrarUsuarios',
           component: MostrarusuariosComponent,
+        },
+        {
+          path:'actualizarUsusarios/:id',
+          component: ActualizarusuariosComponent,
         },
         {
           path:'mostrarRecursos',

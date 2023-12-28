@@ -60,4 +60,8 @@ export class MostrarusuariosComponent {
     );
   }
 
+  ir_actualizar(id: number) {
+    this.router.navigateByUrl(`/dashboard/actualizarUsusarios/${id}`);
+  }
+
 }
