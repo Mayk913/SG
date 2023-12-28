@@ -67,23 +67,24 @@ export class PrivateLayoutComponent implements OnInit {
   // private user: number = 0;
   public mensaje: boolean = false;
   public persona: PersonI = {
-    // UserId: 0,
-    user:0,
     name: '',
     surname: '',
-    DocumentTypeId: 0, // Esto debe inicializarse a un valor válido
+    DocumentTypeId: 0,
     identification: '',
-    GenderId: 0, // Esto debe inicializarse a un valor válido
+    GenderId: 0,
     address: '',
     phone: '',
-    //email: '',
     nationality: '',
-    date_of_birth: '', // Debe inicializarse con la fecha
-    //password: '',
-    DocumentType: undefined, // Puedes dejarlo en blanco o asignar un objeto apropiado
-   
-  
-  };
+    date_of_birth: '',
+    user: {
+        username: '',
+        email: '',
+        Roles: [],
+        avatar: '',
+    },
+    rolesUsers: [],
+};
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -268,7 +269,44 @@ export class PrivateLayoutComponent implements OnInit {
 
   setIDtoPerson() {
     this.verificar();
+  
+    this.userService.getUserById(this.UserId).subscribe({
+      next: (userData: PersonI) => {
+        // Verifica si el usuario tiene una persona asociada
+        if (userData) {
+          // Usuario ya tiene una persona asociada
+          this.persona.user = {
+            id: userData.user?.id,
+            username: userData.user?.username,
+            email: userData.user?.email,
+            Roles: userData.user?.Roles || [],
+            avatar: userData.user?.avatar,
+          };
+          console.log('getUser: ', userData)
+  
+          // Asigna los valores del usuario al formulario
+          this.form.patchValue({
+            name: this.persona.name,
+            surname: this.persona.surname,
+            DocumentTypeId: this.persona.DocumentTypeId,
+            identification: this.persona.identification,
+            GenderId: this.persona.GenderId,
+            address: this.persona.address,
+            phone: this.persona.phone,
+            nationality: this.persona.nationality,
+            date_of_birth: this.persona.date_of_birth,
+          });
+        } else {
+          // No hay persona asociada al usuario
+          console.log('No hay persona asociada al usuario');
+        }
+      },
+      error: (error) => {
+        console.error('Error al obtener el usuario:', error);
+      }
+    });
   }
+  
 
   private buildForm() {
     this.form = this.formBuilder.group({
@@ -299,8 +337,14 @@ export class PrivateLayoutComponent implements OnInit {
     this.verificar();
 
     // Crea una nueva persona
-    const formValue = {
-      user: this.UserId, // Aquí ya tienes los datos del usuario logueado
+    const formValue: PersonI = {
+      user: {
+        id: this.persona.user?.id, // Aquí asumo que tienes acceso al ID del usuario
+        username: this.persona.user?.username,
+        email: this.persona.user?.email,
+        Roles: this.persona.user?.Roles || [],
+        avatar: this.persona.user?.avatar,
+      },
       name: this.form.value.name,
       surname: this.form.value.surname,
       DocumentTypeId: +this.form.value.DocumentTypeId,
@@ -311,6 +355,7 @@ export class PrivateLayoutComponent implements OnInit {
       nationality: this.form.value.nationality,
       date_of_birth: this.form.value.date_of_birth,
     };
+    
 
     if (
       formValue.name !== '' &&

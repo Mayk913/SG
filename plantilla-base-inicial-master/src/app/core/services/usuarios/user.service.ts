@@ -287,6 +287,12 @@ export class UserService {
   //     )
   // }
 
+  getUserById(id: number): Observable<PersonI> {
+    return this.http
+      .get<PersonI>(`${this.base_path_user}${id}`)
+      .pipe(retry(0), catchError(this.handleError));
+  }
+
   createUser(person: any): Observable<any> {
     return this.http.post<any>(this.base_path_post, person).pipe(
       tap((res: PersonI) => {
