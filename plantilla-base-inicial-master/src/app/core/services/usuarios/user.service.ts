@@ -352,11 +352,11 @@ export class UserService {
       };
       // console.log('aqui')
       return this.http
-        .patch(`${this.base_path}/${user.id}`, user, httpOptions)
+        .patch(`${this.base_path_user}${user.id}`, user, httpOptions)
         .pipe(retry(0), catchError(this.handleError));
     } else {
       return this.http
-        .patch(`${this.base_path}/${user.id}`, user)
+        .patch(`${this.base_path_user}${user.id}`, user)
         .pipe(retry(0), catchError(this.handleError));
     }
 

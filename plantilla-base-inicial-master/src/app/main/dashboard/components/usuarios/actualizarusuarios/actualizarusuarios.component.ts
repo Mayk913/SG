@@ -35,8 +35,22 @@ export class ActualizarusuariosComponent {
     this.mostrar();
   }
 
-  onSubmit(){
-
+  onSubmit(): void {
+    const formValue: UserI = this.form.value;
+    const id: number = this.form.value.id;
+    this.userService.updateUser(formValue).subscribe(
+      () => {
+        setTimeout(() => {
+          this.messageService.add({ severity: 'success', summary: 'Notificación', detail: 'Cliente Actualizado' });
+        }, 0);
+        this.router.navigate(['/dashboard/mostrarRoles']);
+        
+      },
+      err => {
+        console.log(err);
+        console.log('No se ha creado correctamente');
+      }
+    );
   }
 
 
