@@ -13,6 +13,7 @@ import {Message,MessageService} from 'primeng/api';
 })
 export class ActualizarusuariosComponent {
   public id: number = 0;
+  public form: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,16 +21,24 @@ export class ActualizarusuariosComponent {
     private formBuilder: FormBuilder,
     private messageService: MessageService,
     private router: Router,
-  ) { }
+  ) { 
+    this.form = this.formBuilder.group({
+      id: [''],
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      password:['', [Validators.required]],
+    });
+  }
 
-  public form:FormGroup=this.formBuilder.group({
+  // public form:FormGroup=this.formBuilder.group({
 
-    username: ['', [Validators.required]],
-    email: ['', [Validators.required]],
-    password:['', [Validators.required]],
+  //   id:[''],
+  //   username: ['', [Validators.required]],
+  //   email: ['', [Validators.required]],
+  //   password:['', [Validators.required]],
     
 
-  });
+  // });
   
   ngOnInit() {
     this.mostrar();
@@ -76,7 +85,7 @@ export class ActualizarusuariosComponent {
         console.log('Data from service:', data);
   
         if (data ) {
-          this.form.setValue(data);
+          this.form.patchValue(data);
           console.log('getuser: ', data);
         } else {
           console.error('El objeto data no tiene la propiedad "id" definida correctamente.');
