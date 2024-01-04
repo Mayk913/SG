@@ -46,13 +46,13 @@ export class ActualizarusuariosComponent {
 
   onSubmit(): void {
     const formValue: UserI = this.form.value;
-    const id: number = this.form.value.id;
+    this.form.value.id =this.id;
     this.userService.updateUser(formValue).subscribe(
       () => {
         setTimeout(() => {
           this.messageService.add({ severity: 'success', summary: 'Notificación', detail: 'Cliente Actualizado' });
         }, 0);
-        this.router.navigate(['/dashboard/mostrarRoles']);
+        this.router.navigate(['/dashboard/mostrarUsuarios']);
         
       },
       err => {
@@ -70,6 +70,7 @@ export class ActualizarusuariosComponent {
   
       if (!isNaN(id)) { // Verifica si 'id' es un número válido
         this.id = id;
+        console.log(this.id);
         this.getUser(this.id);
       } else {
         // Manejar el caso en el que 'id' no es un número válido
@@ -86,7 +87,7 @@ export class ActualizarusuariosComponent {
   
         if (data ) {
           this.form.patchValue(data);
-          console.log('getuser: ', data);
+          // console.log('getuser: ', data);
         } else {
           console.error('El objeto data no tiene la propiedad "id" definida correctamente.');
           

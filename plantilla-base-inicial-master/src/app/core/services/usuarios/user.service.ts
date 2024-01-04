@@ -338,32 +338,35 @@ export class UserService {
     }
   }
 
-  updateUser(user: any) {
-    let token: string | null = localStorage.getItem('token');
-    let userT: string | null = localStorage.getItem('user');
-    if (token != null && userT != null) {
-      let userObjeto: any = JSON.parse(userT);
-      let httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          'x-token': token,
-          user: `${parseInt(userObjeto.id)}`,
-        }),
-      };
-      // console.log('aqui')
-      return this.http
-        .patch(`${this.base_path_user}${user.id}`, user, httpOptions)
-        .pipe(retry(0), catchError(this.handleError));
-    } else {
-      return this.http
-        .patch(`${this.base_path_user}${user.id}`, user)
-        .pipe(retry(0), catchError(this.handleError));
-    }
+  // updateUser(user: UserI):Observable<{ user: UserI }> {
+  //   let token: string | null = localStorage.getItem('token');
+  //   let userT: string | null = localStorage.getItem('user');
+  //   if (token != null && userT != null) {
+  //     let userObjeto: any = JSON.parse(userT);
+  //     let httpOptions = {
+  //       headers: new HttpHeaders({
+  //         'Content-Type': 'application/json',
+  //         'x-token': token,
+  //         user: `${parseInt(userObjeto.id)}`,
+  //       }),
+  //     };
+  //     // console.log('aqui')
+  //     return this.http
+  //       .patch(`${this.base_path_user}update/${user.id}`, user, httpOptions)
+  //       .pipe(retry(0), catchError(this.handleError));
+  //   } else {
+  //     return this.http
+  //       .patch(`${this.base_path_user}update/${user.id}`, user)
+  //       .pipe(retry(0), catchError(this.handleError));
+  //   }
 
-    // return this.http.patch(`${this.base_path}/${user.id}`, user).pipe(
-    //   retry(0),
-    //   catchError(this.handleError)
-    // )
+  //   // return this.http.patch(`${this.base_path}/${user.id}`, user).pipe(
+  //   //   retry(0),
+  //   //   catchError(this.handleError)
+  //   // )
+  // }
+  updateUser(user: UserI): Observable<any> {
+    return this.http.put(`${this.base_path_user}update/${user.id}/`, user);
   }
 
   actualzarAvatar(user: any) {
