@@ -157,7 +157,7 @@ export class AsignarRolesComponent {
   eliminar(id: number): void {
     this.rolesService.eliminarUserRol(id).subscribe(
       () => {
-        this.messageService.add({severity:'warn', summary: 'Notificación', detail: 'Rol Eliminado'});
+        this.messageService.add({severity:'warn', summary: 'Notificación', detail: 'Asignación Eliminada'});
         // Recargar el componente sin recargar toda la aplicación
         this.getUserRoles();
       },
