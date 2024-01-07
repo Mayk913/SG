@@ -115,7 +115,7 @@ export class AsignarRecursosComponent {
     this.resourcesService.getRolesResources().subscribe(
       (data) => {
         this.rolresource = data;
-        // console.log('user-rolget(): ', data);
+        console.log('user-rolget(): ', data);
         // console.log('getResouceRoles: ',this.rolresource)
       },
       error => {

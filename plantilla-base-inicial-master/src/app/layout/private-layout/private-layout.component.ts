@@ -286,6 +286,12 @@ export class PrivateLayoutComponent implements OnInit {
   
           // Asigna los valores del usuario al formulario
           this.form.patchValue({
+            // id: this.persona.user?.id,
+            // username:  this.persona.user?.username,
+            // email:  this.persona.user?.email,
+            // Roles:  this.persona.user?.Roles || [],
+            // avatar:  this.persona.user?.avatar,
+
             name: this.persona.name,
             surname: this.persona.surname,
             DocumentTypeId: this.persona.DocumentTypeId,
@@ -407,7 +413,8 @@ export class PrivateLayoutComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onSubmit():void {
+    console.log("hola")
     // Comprueba si el usuario ya tiene una persona asociada
     this.userService.getPersonByUserId(this.UserId).subscribe(
       (persona) => {

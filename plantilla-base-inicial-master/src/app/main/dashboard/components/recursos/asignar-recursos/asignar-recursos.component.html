@@ -17,8 +17,8 @@
     <ng-template pTemplate="body" let-rolresource>
         <tr>
             <td>{{ rolresource?.id }}</td>
-            <td>{{ rolresource?.role_id}}</td>
-            <td>{{ rolresource?.resource_id}}</td>
+            <td>{{ rolresource?.role_id.name}}</td>
+            <td>{{ rolresource?.resource_id.name}}</td>
             <td>
                 <!-- Agrega tus botones y acciones aquí según sea necesario -->
                 <button pButton pRipple icon="pi pi-sync" class="boton"></button>
