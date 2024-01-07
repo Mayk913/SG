@@ -394,7 +394,7 @@ export class UserService {
 
   eliminarUser(id: number) {
     return this.http
-      .delete(`${this.base_path_user}${id}`)
+      .delete(`${this.base_path_user}delete/${id}`)
       .pipe(retry(0), catchError(this.handleError));
   }
 
