@@ -46,7 +46,7 @@ export class MostrarusuariosComponent {
   }
   openDialog() {
     this.Dialog = true;
-    console.log(this.Dialog)
+    
   }
 
   eliminar(id: number): void {
