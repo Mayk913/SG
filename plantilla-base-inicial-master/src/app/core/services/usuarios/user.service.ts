@@ -306,7 +306,7 @@ export class UserService {
   }
 
   createUser2(person: any): Observable<any> {//una funcion para crear un usuario desde el modo admin
-    return this.http.post<any>(this.base_path_user+'create', person).pipe(
+    return this.http.post<any>(this.base_path_user+'create/', person).pipe(
       tap((res: PersonI) => {
         if (res) {
           // Crear usuario

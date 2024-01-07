@@ -34,3 +34,38 @@
     </ng-template>
 </p-table>
 <p-toast></p-toast>
+
+<p-dialog [(visible)]="Dialog">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="width: 48%;">
+                <span class="p-float-label">
+                    <input pInputText id="username" formControlName="username" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="username">Nombre</label>
+                </span><br><br>
+    
+                <span class="p-float-label">
+                    <input pInputText id="email" formControlName="email" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="email">Email</label>
+                </span><br><br>
+    
+                <span class="p-float-label">
+                    <input pInputText id="password" formControlName="password"
+                        [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="password">Contraseña</label>
+                </span><br><br>
+    <!-- 
+                <p-password formControlName="password" ></p-password> -->
+    
+                
+            </div>
+    
+            
+        </div>
+    
+        <br>
+        <p-toast></p-toast>
+        <button pButton pRipple type="submit" icon="pi pi-check" label="Guardar cambios"
+            style="background: linear-gradient(to right, #FF4B2B, #FF416C); border-color: #FF416C;"></button>
+    </form>
+</p-dialog>

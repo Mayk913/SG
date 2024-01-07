@@ -25,8 +25,9 @@ export class MostrarusuariosComponent {
 
   public form:FormGroup=this.formBuilder.group({
 
-    name: ['', [Validators.required]],
-    surname: ['', [Validators.required]],
+    username: ['', [Validators.required]],
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required]],
     
 
   });
@@ -45,6 +46,7 @@ export class MostrarusuariosComponent {
   }
   openDialog() {
     this.Dialog = true;
+    console.log(this.Dialog)
   }
 
   eliminar(id: number): void {
@@ -62,6 +64,26 @@ export class MostrarusuariosComponent {
 
   ir_actualizar(id: number) {
     this.router.navigateByUrl(`/dashboard/actualizarUsusarios/${id}`);
+  }
+
+  onSubmit(): void {
+    const formValue: UserI = this.form.value;
+    console.log(formValue);
+    this.userService.createUser2(formValue).subscribe(
+      () => {
+        // console.log('Se ha creado correctamente');
+
+        this.messageService.add({severity:'success', summary: 'Success', detail: 'Usuario Creado con exito'});
+        this.mostrarUsuarios();
+        this.Dialog=false;
+
+      },
+      err => {
+
+        console.log(err);
+        console.log('No se ha creado correctamente');
+      }
+    );
   }
 
 }
