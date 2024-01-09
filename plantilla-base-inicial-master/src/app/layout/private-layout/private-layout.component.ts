@@ -414,7 +414,8 @@ export class PrivateLayoutComponent implements OnInit {
   }
 
   onSubmit():void {
-    console.log("hola")
+    console.log("hola")/*la funcion se ejecuta pero el servicio no inicia debido al incumplimiento de la condicion,
+    queda pendiente la posterior revision y el arreglol*/
     // Comprueba si el usuario ya tiene una persona asociada
     this.userService.getPersonByUserId(this.UserId).subscribe(
       (persona) => {
