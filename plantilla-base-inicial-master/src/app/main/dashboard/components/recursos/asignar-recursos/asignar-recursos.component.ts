@@ -147,7 +147,7 @@ export class AsignarRecursosComponent {
         //console.log('rol1: ',data); // Asegúrate de que data contenga los roles
         this.recursos = data;
         // console.log('get recursos',this.recursos)
-        this.resource_op = this.recursos.map(recurso => ({ title: recurso.title, code: recurso.id }));
+        this.resource_op = this.recursos.map(resource => ({ title: resource.title, code: resource.id }));
       },
       error: (error) => {
         console.error('Error al obtener roles:', error);
