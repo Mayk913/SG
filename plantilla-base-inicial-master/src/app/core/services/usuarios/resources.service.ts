@@ -98,7 +98,7 @@ export class ResourcesService {
 
   createRoleResource(assignment: any): Observable<assinRoleResourceI> {
     return this.http.post<assinRoleResourceI>(
-      `${this.base_path}resource-rol/`,
+      `${this.base_path}resource-rol/create/`,
       assignment
     );
   }

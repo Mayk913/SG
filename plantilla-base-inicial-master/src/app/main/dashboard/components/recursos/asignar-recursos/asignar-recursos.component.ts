@@ -72,7 +72,7 @@ export class AsignarRecursosComponent {
         this.resourcesService.createRoleResource(resourceRoleAssignment).subscribe(
           (data) => {
             // Maneja la respuesta según lo que necesites
-            // console.log('Asignación exitosa:', data);
+            console.log('Asignación exitosa:', data);
             this.getResouceRoles();
             this.Dialog = false;
             this.messageService.add({
@@ -156,4 +156,18 @@ export class AsignarRecursosComponent {
 
   }
   /*================================================================================*/ 
+
+  /*=============================METODO ELIMINAR ===================================================*/ 
+  eliminar(id: number): void {
+    this.resourcesService.deleteRoleResource(id).subscribe(
+      () => {
+        this.messageService.add({severity:'warn', summary: 'Notificación', detail: 'Asignación Eliminada'});
+        // Recargar el componente sin recargar toda la aplicación
+        this.getResouceRoles();
+      },
+      err => {
+        console.error('Error al eliminar el rol', err);
+      }
+    );
+  }
 }
