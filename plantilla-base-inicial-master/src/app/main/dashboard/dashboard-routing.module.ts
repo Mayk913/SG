@@ -13,6 +13,7 @@ import { MostrarRecursosComponent } from './components/recursos/mostrar-recursos
 import { AsignarRecursosComponent } from './components/recursos/asignar-recursos/asignar-recursos.component';
 import { ActualizarRecursosComponent } from './components/recursos/actualizar-recursos/actualizar-recursos.component';
 import { ActualizarusuariosComponent } from './components/usuarios/actualizarusuarios/actualizarusuarios.component';
+import { ActualizarAsignarRecursosComponent } from './components/recursos/actualizar-asignar-recursos/actualizar-asignar-recursos.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,11 @@ const routes: Routes = [
         {
           path:'actualizarRecursos/:id',
           component: ActualizarRecursosComponent,
+        },
+        {
+          path:'ActualizarAasignarArecursos',
+          component: ActualizarAsignarRecursosComponent,
+         
         },
         ]
       }

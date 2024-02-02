@@ -53,6 +53,7 @@ import { ActualizarRecursosComponent } from './components/recursos/actualizar-re
 import { EliminarRecursosComponent } from './components/recursos/eliminar-recursos/eliminar-recursos.component';
 import { AsignarRolesComponent } from './components/roles/asignar-roles/asignar-roles.component';
 import { AsignarRecursosComponent } from './components/recursos/asignar-recursos/asignar-recursos.component';
+import { ActualizarAsignarRecursosComponent } from './components/recursos/actualizar-asignar-recursos/actualizar-asignar-recursos.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { AsignarRecursosComponent } from './components/recursos/asignar-recursos
     EliminarRecursosComponent,
     AsignarRolesComponent,
     AsignarRecursosComponent,
+    ActualizarAsignarRecursosComponent,
   ],
   imports: [
     CommonModule,
