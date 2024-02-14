@@ -71,7 +71,7 @@ const routes: Routes = [
           component: ActualizarRecursosComponent,
         },
         {
-          path:'actualizarAsignarRecursos',
+          path:'actualizarAsignarRecursos/:id',
           component: ActualizarAsignarRecursosComponent,
          
         },

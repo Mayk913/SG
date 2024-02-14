@@ -109,6 +109,10 @@ export class AsignarRecursosComponent {
   }
   
   
+  ir_actualizar(id: number) {
+    this.router.navigateByUrl(`/dashboard/actualizarAsignarRecursos/${id}`);
+  }
+
 
 
   getResouceRoles() {
