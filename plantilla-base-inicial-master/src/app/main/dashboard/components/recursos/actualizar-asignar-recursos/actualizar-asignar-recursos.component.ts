@@ -35,8 +35,8 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       id: [''],
-      role_Id: ['', [Validators.required]],
-      resource_Id: ['', [Validators.required]],
+      role_id: ['', [Validators.required]],
+      resource_id: ['', [Validators.required]],
     });
   }
 
@@ -89,13 +89,13 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
 
   getRolResource(id: number) {
     this.resourcesService.getRoleResourceById(id).subscribe({
-      next: (data:any) => {
+      next: (data:assinRoleResourceI) => {
         if (data) {
           console.log( data)
           this.form.patchValue({
             id: data.id,
-            role_Id: data.role_Id,  // Ajusta esto según las propiedades reales de 'data'
-            resource_Id: data.resource_Id,  // Ajusta esto según las propiedades reales de 'data'
+            role_Id: data.role_id,  // Ajusta esto según las propiedades reales de 'data'
+            resource_Id: data.resource_id,  // Ajusta esto según las propiedades reales de 'data'
           });
         } else {
           console.error('El objeto data no tiene la propiedad "id" definida correctamente.');

@@ -3,13 +3,13 @@
     style="display: flex; flex-direction: column; height: 100%; justify-content: center; gap: 10px;">
     <div style="flex: 1; display: flex; justify-content: space-between;">
         <div style="width: 48%;">
-            <label for="resource_Id">Recursos:</label>
-            <p-multiSelect [options]="resource_op" formControlName="resource_Id" placeholder="Select Resource"
+            <label for="resource_id">Recursos:</label>
+            <p-multiSelect [options]="resource_op" formControlName="resource_id" placeholder="Select Resource"
                 optionLabel="title" display="chip" [showClear]="true"></p-multiSelect>
         </div>
         <div style="width: 48%;">
             <label for="role_Id">Roles:</label>
-            <p-multiSelect [options]="rol_op" formControlName="role_Id" placeholder="Select Roles" optionLabel="name"
+            <p-multiSelect [options]="rol_op" formControlName="role_id" placeholder="Select Roles" optionLabel="name"
                 display="chip" [showClear]="true"></p-multiSelect>
         </div>
     </div>
