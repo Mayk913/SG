@@ -43,12 +43,13 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
   ngOnInit() {
     this.mostrar();
     this.getResourceRolOptions();
+    
   }
 
   mostrar() {
     this.route.params.subscribe(params => {
       const id = +params['id'];
-
+  
       if (!isNaN(id)) {
         this.id = id;
         this.getRolResource(this.id);
@@ -91,7 +92,7 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
     this.resourcesService.getRoleResourceById(id).subscribe({
       next: (data:assinRoleResourceI) => {
         if (data) {
-          console.log( data)
+          console.log('datafromfuntion:', data)
           this.form.patchValue({
             id: data.id,
             role_Id: data.role_id,  // Ajusta esto según las propiedades reales de 'data'
