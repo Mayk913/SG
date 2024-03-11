@@ -1,8 +1,3 @@
-<<<<<<< HEAD
----
----
----
-
 ## **Sistema de Gestión Departamental del Deporte (SGDD)**
 
 Es la creación de un ecosistema, donde los procesos permiten la evolución del sistema departamental de deporte, mediante el diagnósticos y el análisis de los ciclos de planificación, organización, dirección, control y marketing que se desarrollan y que colocan el deporte a un clic de todas las personas, que podrán interactuar con el sistema y ser protagonistas de la transformación del sector.
@@ -32,8 +27,3 @@ Es la creación de un ecosistema, donde los procesos permiten la evolución del 
 [![](https://hoplasoftware.com/wp-content/uploads/2021/07/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png){width="426"}](https://dev.mysql.com/doc/)
 
 [![](https://cdn.hashnode.com/res/hashnode/image/upload/v1636780048014/niLN2J80j.png){width="483"}](https://docs.djangoproject.com/en/5.0/)
-=======
-## **Sistema de Gestión Departamental del Deporte (SGDD)**
-
-Es la creación de un ecosistema, donde los procesos permiten la evolución del sistema departamental de deporte, mediante el diagnósticos y el análisis de los ciclos de planificación, organización, dirección, control y marketing que se desarrollan y que colocan el deporte a un clic de todas las personas, que podrán interactuar con el sistema y ser protagonistas de la transformación del sector.
->>>>>>> 9ed58d6585b338d523a48bfe42f9cb73f2b8ec8b
