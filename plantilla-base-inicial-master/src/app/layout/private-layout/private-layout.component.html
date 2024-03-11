@@ -112,8 +112,8 @@
     <div style="text-align: center;">
       <button pButton pRipple label="No" icon="pi pi-times" style="color: rgb(31, 45, 64);" class="p-button-text"
         (click)="hideDialog()"></button>
-      <button pButton pRipple label="Si" style="background: linear-gradient(to right, #FF4B2B, #FF416C)" class=" p-button-raised p-button-rounded"
-        icon="pi pi-check" (click)="cerrarSesion()"></button>
+      <button pButton pRipple label="Si" style="background: linear-gradient(to right, #FF4B2B, #FF416C)"
+        class=" p-button-raised p-button-rounded" icon="pi pi-check" (click)="cerrarSesion()"></button>
     </div>
   </ng-template>
 </p-dialog>
@@ -126,10 +126,10 @@
   <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
     <div style="display: flex; justify-content: space-between;">
       <div style="width: 48%;">
-        <label for="nombre">Nombre:</label>
+        <label for="name">Nombre:</label>
         <input type="text" formControlName="name"><br><br>
 
-        <label for="segundoNombre">Apellidos:</label>
+        <label for="surname">Apellidos:</label>
         <input type="text" formControlName="surname"><br><br>
 
         <label for="identification">Identificación:</label>
@@ -170,9 +170,10 @@
     </div>
 
     <br>
-    <p-toast></p-toast>
+
     <button pButton pRipple type="submit" icon="pi pi-check" label="Guardar cambios"
       style="background: linear-gradient(to right, #FF4B2B, #FF416C); border-color: #FF416C;"></button>
   </form>
-  
+
 </p-dialog>
+<p-toast></p-toast>

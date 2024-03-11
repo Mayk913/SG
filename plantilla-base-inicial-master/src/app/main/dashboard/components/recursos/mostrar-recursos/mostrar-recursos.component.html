@@ -1,1 +1,99 @@
-<p>mostrar-recursos works!</p>
+<div class="card">
+    <span style="font-size: 20px;  font-weight: 500;">Lista de Recursos</span>
+    <br/>
+    <div class="flex align-items-center justify-content-end ">
+        <a pButton pRipple label="Crear Recurso" icon="pi pi-user-plus" style="background-color: #FF416C; border: none;"
+            (click)="openDialog()">
+        </a>
+    
+    
+    </div>
+    <br/>
+    <p-table [value]="recursos"  >
+        <ng-template pTemplate="header">
+            <tr>
+                <th class="id">ID</th>
+                <th>Path</th>
+                <th>Id parent</th>
+                <th>Metodo</th>
+                <th>Icono</th>
+                <th>Link</th>
+                <th>Titulo</th>
+                <th>Acciones</th>
+                <!-- <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Correo</th> -->
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-recursos>
+            <tr>
+                <td>{{recursos.id}}</td>
+                <td>{{recursos.path}}</td>
+                <td>{{recursos.id_parent}}</td>
+                <td>{{recursos.method}}</td>
+                <td>{{recursos.icon}}</td>
+                <td>{{recursos.link}}</td>
+                <td>{{recursos.title}}</td>
+
+                <td>
+                    <!-- <button pButton pRipple icon="pi pi-print" class="boton"></button> -->
+                    <button pButton pRipple icon="pi pi-sync" class="boton" (click)="ir_actualizar(recursos.id)"></button>
+                    <button pButton pRipple icon="pi pi-eraser" class="boton" (click)="eliminar(recursos.id)"></button>
+                </td>
+
+            </tr>
+            
+        </ng-template>
+    </p-table>
+</div>
+<p-toast></p-toast>
+<!------------------------------------ Crear rol -------------------------------->
+
+<p-dialog [(visible)]="Dialog" [style]="{'width': '60vw' }">
+    <h1 style="display: flex; justify-content: center;">Crear Recurso</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+        <div style="display: flex; justify-content: center;">
+            <div style="width: 48%;">
+                <span class="p-float-label">
+                    <input pInputText id="path" formControlName="path" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="path">Path</label>
+                </span><br><br>
+
+                <span class="p-float-label">
+                    <input pInputText id="id_parent" formControlName="id_parent" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="id_parent">Id_parent</label>
+                  </span><br><br>
+
+                  <span class="p-float-label">
+                    <input pInputText id="method" formControlName="method" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="method">Method</label>
+                  </span><br><br>
+            </div>
+
+            <div style="width: 48%;">
+                <span class="p-float-label">
+                    <input pInputText id="icon" formControlName="icon" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="icon">Icono</label>
+                  </span><br><br>
+
+                  <span class="p-float-label">
+                    <input pInputText id="link" formControlName="link" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="link">Link</label>
+                  </span><br><br>
+
+                  <span class="p-float-label">
+                    <input pInputText id="title" formControlName="title" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="title">Titulo</label>
+                  </span><br><br>
+            </div>
+        </div>
+
+        <br>
+        
+        <button pButton pRipple type="submit" icon="pi pi-check" label="Guardar cambios"
+            style="background: linear-gradient(to right, #FF4B2B, #FF416C); border-color: #FF416C;"></button>
+       
+    </form>
+    
+</p-dialog>

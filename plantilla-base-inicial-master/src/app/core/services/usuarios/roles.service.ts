@@ -65,35 +65,38 @@ export class RolesService {
       )
       .pipe(retry(0), catchError(this.handleError));
   }
-
-  assinRole(role: assinRoleUserI): Observable<{ role: assinRoleUserI }> {
-    let token: string | null = localStorage.getItem('token');
-    let userT: string | null = localStorage.getItem('user');
+  //adignar rol
+  assinRole(assignment: { userId: number, rolesId: number }): Observable<{ role: assinRoleUserI }> {
+    const token: string | null = localStorage.getItem('token');
+    const userT: string | null = localStorage.getItem('user');
+  
     if (token != null && userT != null) {
-      let userObjeto: any = JSON.parse(userT);
-      let httpOptions = {
+      const userObjeto: any = JSON.parse(userT);
+      const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           'x-token': token,
           user: userObjeto.id,
         }),
       };
+  
       return this.http
         .post<{ role: assinRoleUserI }>(
-          this.base + 'assinRole',
-          JSON.stringify(role),
+          this.base + '/user-rol/',
+          JSON.stringify(assignment),
           httpOptions
         )
         .pipe(retry(0), catchError(this.handleError));
     } else {
       return this.http
         .post<{ role: assinRoleUserI }>(
-          this.base + 'assinRole',
-          JSON.stringify(role)
+          this.base + '/user-rol/',
+          JSON.stringify(assignment)
         )
         .pipe(retry(0), catchError(this.handleError));
     }
   }
+  
 
   assinRoleResource(
     array: assinRoleResourceI
@@ -127,6 +130,8 @@ export class RolesService {
     //console.log(role,'----------------');
   }
 
+
+  /*=================================User-Rol CRUD=========================================*/
   updateRole(role: RoleI): Observable<{ role: RoleI }> {
     return this.http
       .patch<{ role: RoleI }>(`${this.base_path}${role.id}/`, role, this.httpOptions)
@@ -142,4 +147,13 @@ export class RolesService {
   getUserRolesData(): Observable<any> {
     return this.http.get<any>(`${this.base_path}user-rol/`);
   }
+
+
+  eliminarUserRol(id: number){
+    return this.http
+      .delete<any>(`${this.base}/user-rol/${id}/`)
+      .pipe(retry(0), catchError(this.handleError));
+  }
+
+  /*=============================================================================== */
 }

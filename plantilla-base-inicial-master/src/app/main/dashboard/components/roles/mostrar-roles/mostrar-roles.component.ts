@@ -55,8 +55,9 @@ export class MostrarRolesComponent {
     });
   }
 
+  /*===================================METODO PARA IR AL COMPONENTE ACTUALIZAR ==============================*/
   ir_actualizar(id: number) {
-    this.router.navigateByUrl(`actualizarRoles/${id}`);
+    this.router.navigateByUrl(`/dashboard/actualizarRoles/${id}`);
   }
   
   

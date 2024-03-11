@@ -39,6 +39,14 @@ export class UserService {
     };
     return throwError(error.error);
   }
+
+  /*======================Obtener usuarios=========================*/
+  getUsers(): Observable<UserI[]> {
+    return this.http.get<UserI[]>(`${this.base_path_user}`);
+  }
+
+
+
   // Get students data
   getUser(): Observable< UserI[] > {
     let token: string | null = localStorage.getItem('token');
@@ -279,8 +287,26 @@ export class UserService {
   //     )
   // }
 
+  getUserById(id: number): Observable<PersonI> {
+    return this.http
+      .get<PersonI>(`${this.base_path_user}${id}`)
+      .pipe(retry(0), catchError(this.handleError));
+  }
+
   createUser(person: any): Observable<any> {
     return this.http.post<any>(this.base_path_post, person).pipe(
+      tap((res: PersonI) => {
+        if (res) {
+          // Crear usuario
+          // console.log('registro insertado');
+        }
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  createUser2(person: any): Observable<any> {//una funcion para crear un usuario desde el modo admin
+    return this.http.post<any>(this.base_path_user+'create/', person).pipe(
       tap((res: PersonI) => {
         if (res) {
           // Crear usuario
@@ -324,32 +350,35 @@ export class UserService {
     }
   }
 
-  updateUser(user: any) {
-    let token: string | null = localStorage.getItem('token');
-    let userT: string | null = localStorage.getItem('user');
-    if (token != null && userT != null) {
-      let userObjeto: any = JSON.parse(userT);
-      let httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          'x-token': token,
-          user: `${parseInt(userObjeto.id)}`,
-        }),
-      };
-      // console.log('aqui')
-      return this.http
-        .patch(`${this.base_path}/${user.id}`, user, httpOptions)
-        .pipe(retry(0), catchError(this.handleError));
-    } else {
-      return this.http
-        .patch(`${this.base_path}/${user.id}`, user)
-        .pipe(retry(0), catchError(this.handleError));
-    }
+  // updateUser(user: UserI):Observable<{ user: UserI }> {
+  //   let token: string | null = localStorage.getItem('token');
+  //   let userT: string | null = localStorage.getItem('user');
+  //   if (token != null && userT != null) {
+  //     let userObjeto: any = JSON.parse(userT);
+  //     let httpOptions = {
+  //       headers: new HttpHeaders({
+  //         'Content-Type': 'application/json',
+  //         'x-token': token,
+  //         user: `${parseInt(userObjeto.id)}`,
+  //       }),
+  //     };
+  //     // console.log('aqui')
+  //     return this.http
+  //       .patch(`${this.base_path_user}update/${user.id}`, user, httpOptions)
+  //       .pipe(retry(0), catchError(this.handleError));
+  //   } else {
+  //     return this.http
+  //       .patch(`${this.base_path_user}update/${user.id}`, user)
+  //       .pipe(retry(0), catchError(this.handleError));
+  //   }
 
-    // return this.http.patch(`${this.base_path}/${user.id}`, user).pipe(
-    //   retry(0),
-    //   catchError(this.handleError)
-    // )
+  //   // return this.http.patch(`${this.base_path}/${user.id}`, user).pipe(
+  //   //   retry(0),
+  //   //   catchError(this.handleError)
+  //   // )
+  // }
+  updateUser(user: UserI): Observable<any> {
+    return this.http.put(`${this.base_path_user}update/${user.id}/`, user);
   }
 
   actualzarAvatar(user: any) {
@@ -377,7 +406,7 @@ export class UserService {
 
   eliminarUser(id: number) {
     return this.http
-      .delete(`${this.base_path}/${id}`)
+      .delete(`${this.base_path_user}delete/${id}`)
       .pipe(retry(0), catchError(this.handleError));
   }
 

@@ -9,6 +9,11 @@ import { DashboardComponent } from './dashboard.component';
 import { ActualizarRolesComponent } from './components/roles/actualizar-roles/actualizar-roles.component';
 import { MostrarusuariosComponent } from './components/usuarios/mostrarusuarios/mostrarusuarios.component';
 import { AsignarRolesComponent } from './components/roles/asignar-roles/asignar-roles.component';
+import { MostrarRecursosComponent } from './components/recursos/mostrar-recursos/mostrar-recursos.component';
+import { AsignarRecursosComponent } from './components/recursos/asignar-recursos/asignar-recursos.component';
+import { ActualizarRecursosComponent } from './components/recursos/actualizar-recursos/actualizar-recursos.component';
+import { ActualizarusuariosComponent } from './components/usuarios/actualizarusuarios/actualizarusuarios.component';
+import { ActualizarAsignarRecursosComponent } from './components/recursos/actualizar-asignar-recursos/actualizar-asignar-recursos.component';
 
 const routes: Routes = [
   {
@@ -48,6 +53,27 @@ const routes: Routes = [
         {
           path:'mostrarUsuarios',
           component: MostrarusuariosComponent,
+        },
+        {
+          path:'actualizarUsusarios/:id',
+          component: ActualizarusuariosComponent,
+        },
+        {
+          path:'mostrarRecursos',
+          component: MostrarRecursosComponent,
+        },
+        {
+          path:'asignarRecursos',
+          component: AsignarRecursosComponent,
+        },
+        {
+          path:'actualizarRecursos/:id',
+          component: ActualizarRecursosComponent,
+        },
+        {
+          path:'actualizarAsignarRecursos/:id',
+          component: ActualizarAsignarRecursosComponent,
+         
         },
         ]
       }

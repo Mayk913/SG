@@ -28,6 +28,11 @@ export class ActualizarRolesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.mostrar();
+  }
+
+
+  mostrar(){
     // Utiliza 'params' en lugar de 'queryParams'
     this.route.params.subscribe(params => {
       const id = +params['id']; // '+' para convertir el parámetro a número
@@ -70,9 +75,10 @@ export class ActualizarRolesComponent implements OnInit {
     this.rolesService.updateRole(formValue).subscribe(
       () => {
         setTimeout(() => {
-          this.messageService.add({ severity: 'success', summary: 'Notificación', detail: 'Cliente Actualizado', life: 5000 });
+          this.messageService.add({ severity: 'success', summary: 'Notificación', detail: 'Cliente Actualizado' });
         }, 0);
-        this.router.navigateByUrl('/actualizarRoles/');
+        this.router.navigate(['/dashboard/mostrarRoles']);
+        
       },
       err => {
         console.log(err);

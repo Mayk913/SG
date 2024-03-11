@@ -4,9 +4,9 @@ export interface ResourceI {
     id?:number;
     path: string;
     method: string ;
-    id_padre: string | number;
-    icono: string;
+    id_parent: string | number;
+    icon: string;
     link: string;
-    titulo: string;
+    title: string;
     Roles?:RoleI[]
   }

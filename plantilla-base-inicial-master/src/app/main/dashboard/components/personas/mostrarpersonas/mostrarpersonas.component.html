@@ -1,4 +1,4 @@
-<span>Lista de personas</span>
+<span class="titulo">Lista de personas</span>
 <br />
 <br />
 <div class="flex align-items-center justify-content-end ">
@@ -36,62 +36,64 @@
             <td>{{persona.address}}</td>
             <td>{{persona.phone_number}}</td>
             <td>
-                <button pButton pRipple icon="pi pi-print" class="boton" [ngClass]="{'boton':true}"></button>
+
                 <button pButton pRipple icon="pi pi-sync" class="boton"></button>
-                <button pButton pRipple icon="pi pi-eraser" class="boton" (click)="eliminar(persona.id)" ></button>
+                <button pButton pRipple icon="pi pi-eraser" class="boton" (click)="eliminar(persona.id)"></button>
             </td>
         </tr>
     </ng-template>
 </p-table>
 <p-toast></p-toast>
 
-
-<p-dialog [(visible)]="Dialog" [style]="{'width': '60vw'}">
+<!-- [style]="{'width': '60vw'}" -->
+<p-dialog [(visible)]="Dialog">
     <h1>Datos Personales</h1>
 
     <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
         <div style="display: flex; justify-content: space-between;">
             <div style="width: 48%;">
-                <label for="nombre">Nombre:</label>
-                <input type="text" formControlName="name"><br><br>
+                <span class="p-float-label">
+                    <input pInputText id="name" formControlName="name" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="name">Nombre</label>
+                </span><br><br>
 
-                <label for="segundoNombre">Apellidos:</label>
-                <input type="text" formControlName="surname"><br><br>
+                <span class="p-float-label">
+                    <input pInputText id="surname" formControlName="surname" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="surname">Apellido</label>
+                </span><br><br>
 
-                <label for="identification">Identificación:</label>
-                <input type="text" formControlName="identification"><br><br>
+                <span class="p-float-label">
+                    <input pInputText id="identification" formControlName="identification"
+                        [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="identification">Identificación</label>
+                </span><br><br>
 
-                <label for="DocumentTypeId">Tipo de Identificación:</label>
-                <select formControlName="DocumentTypeId">
-                    <option value="1">Cédula</option>
-                    <option value="2">Pasaporte</option>
-                    <option value="3">Tarjeta de Identidad</option>
-                    <option value="4">Otro</option>
-                </select>
+
+                <p-multiSelect formControlName="documentTypeId" placeholder="Tipo de documento"
+                    optionLabel="documentTypeId" display="chip" [showClear]="true"></p-multiSelect>
             </div>
 
             <div style="width: 48%;">
-                <label for="date_of_birth">Fecha de Nacimiento:</label>
-                <input type="date" formControlName="date_of_birth"><br><br>
+                <p-calendar formControlName="date_of_birth" placeholder="Fecha de Nacimiento" [ngClass]="['small-calendar']"></p-calendar><br><br>
 
                 <!-- <label for="edad">Edad:</label>
           <input type="number" formControlName="edad" name="edad"><br><br> -->
 
-                <label for="GenderId">Sexo:</label>
-                <select formControlName="GenderId">
-                    <option value="1">Masculino</option>
-                    <option value="2">Femenimo</option>
-                    <option value='3'>Otro</option>
-
-                </select>
+                <p-multiSelect formControlName="GenderId" placeholder="Genero" optionLabel="GenderId" display="chip"
+                    [showClear]="true"></p-multiSelect>
                 <br />
                 <br />
 
-                <label for="nationality">Nacionalidad:</label>
-                <input type="text" formControlName="nationality"><br><br>
+                <span class="p-float-label">
+                    <input pInputText id="nationality" formControlName="nationality"
+                        [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="nationality">Nacionalidad</label>
+                </span><br><br>
 
-                <label for="phone">Teléfono:</label>
-                <input type="tel" formControlName="phone">
+                <span class="p-float-label">
+                    <input pInputText id="phone" formControlName="phone" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="phone">Teléfono</label>
+                </span>
             </div>
         </div>
 

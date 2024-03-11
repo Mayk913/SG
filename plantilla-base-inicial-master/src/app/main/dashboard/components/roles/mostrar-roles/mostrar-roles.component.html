@@ -36,7 +36,7 @@
         </ng-template>
     </p-table>
 </div>
-
+<p-toast></p-toast>
 <!------------------------------------ Crear rol -------------------------------->
 
 <p-dialog [(visible)]="Dialog" [style]="{'width': '60vw' }">
@@ -45,8 +45,10 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
         <div style="display: flex; justify-content: center;">
             <div style="width: 48%;">
-                <label for="nombre">Nombre:</label>
-                <input type="text" formControlName="name"><br><br>
+                <span class="p-float-label mt-3">
+                    <input pInputText id="name" formControlName="name" [ngClass]="{'input-focused': true}" />
+                    <label htmlFor="name">Nombre</label>
+                </span>
             </div>
         </div>
 
