@@ -27,3 +27,5 @@ Es la creación de un ecosistema, donde los procesos permiten la evolución del 
 [![](https://hoplasoftware.com/wp-content/uploads/2021/07/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png){width="97"}](https://dev.mysql.com/doc/)
 
 [![](https://cdn.hashnode.com/res/hashnode/image/upload/v1636780048014/niLN2J80j.png){width="110"}](https://docs.djangoproject.com/en/5.0/)
+
+### Sobre nosotros:
