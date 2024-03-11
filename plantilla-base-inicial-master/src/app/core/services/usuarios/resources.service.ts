@@ -13,7 +13,7 @@ export class ResourcesService {
   API_URI = environment.API_URI;
 
   // API path
-  base_path = `${this.API_URI}/api/resource`;
+  base_path = `${this.API_URI}/resources/`;
   base = `${this.API_URI}/api/`;
 
   constructor(private http: HttpClient) { }

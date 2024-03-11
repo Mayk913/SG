@@ -5,19 +5,19 @@ export interface menuGen {
 
 export interface listaMenuI {
     id: number;
-    id_padre: number;
-    icono: string;
+    id_parent: number;
+    icon: string;
     link: string;
-    titulo: string;
+    title: string;
 }
 
 
 export interface hijosI {
         id: number;
-        id_padre:number;
-        icono: string;
+        id_parent:number;
+        icon: string;
         link: string;
-        titulo: string;
+        title: string;
         menu?:listaMenuI[]
 }
 
@@ -29,26 +29,26 @@ export interface menuI {
 
 export interface opcMenu {
           id: number;
-          id_padre:number;
-          icono: string;
+          id_parent:number;
+          icon: string;
           link: string;
-          titulo: string;
+          title: string;
           
           menu?:[
               {
               id: number;
-              id_padre:number;
-              icono: string;
+              id_parent:number;
+              icon: string;
               link: string;
-              titulo: string;
+              title: string;
               
               menu?:[
                   {
                   id: number;
-                  id_padre:number;
-                  icono: string;
+                  id_parent:number;
+                  icon: string;
                   link: string;
-                  titulo: string;
+                  title: string;
                   }
               ]
               }

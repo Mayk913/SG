@@ -39,11 +39,37 @@ import { GeneralComponent } from './components/escritorio/general/general.compon
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MultiSelectModule} from 'primeng/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MostrarusuariosComponent } from './components/usuarios/mostrarusuarios/mostrarusuarios.component';
+import { ActualizarusuariosComponent } from './components/usuarios/actualizarusuarios/actualizarusuarios.component';
+import { EliminarusuariosComponent } from './components/usuarios/eliminarusuarios/eliminarusuarios.component';
+import { MostrarpersonasComponent } from './components/personas/mostrarpersonas/mostrarpersonas.component';
+import { ActualizarpersonasComponent } from './components/personas/actualizarpersonas/actualizarpersonas.component';
+import { EliminarpersonasComponent } from './components/personas/eliminarpersonas/eliminarpersonas.component';
+import { MostrarRolesComponent } from './components/roles/mostrar-roles/mostrar-roles.component';
+import { ActualizarRolesComponent } from './components/roles/actualizar-roles/actualizar-roles.component';
+import { EliminarRolesComponent } from './components/roles/eliminar-roles/eliminar-roles.component';
+import { MostrarRecursosComponent } from './components/recursos/mostrar-recursos/mostrar-recursos.component';
+import { ActualizarRecursosComponent } from './components/recursos/actualizar-recursos/actualizar-recursos.component';
+import { EliminarRecursosComponent } from './components/recursos/eliminar-recursos/eliminar-recursos.component';
+import { AsignarRolesComponent } from './components/roles/asignar-roles/asignar-roles.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     GeneralComponent,
+    MostrarusuariosComponent,
+    ActualizarusuariosComponent,
+    EliminarusuariosComponent,
+    MostrarpersonasComponent,
+    ActualizarpersonasComponent,
+    EliminarpersonasComponent,
+    MostrarRolesComponent,
+    ActualizarRolesComponent,
+    EliminarRolesComponent,
+    MostrarRecursosComponent,
+    ActualizarRecursosComponent,
+    EliminarRecursosComponent,
+    AsignarRolesComponent,
   ],
   imports: [
     CommonModule,

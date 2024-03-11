@@ -1,66 +1,63 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate class="fondo">
-  <p-dialog [(visible)]="displayMaximizable" [modal]="true"
-    [style]="{'width': '77%','max-height':'80%','text-align': 'center','background':'#333333'}"
-    contentStyleClass="overflow-y-hidden" [closable]="false" [closeOnEscape]="false" [resizable]="false" zindex="10000"
-    [showHeader]="false">
-    <div class="grid grid-nogutter surface-section text-800">
-      <div class="col-12 sm:col-6 md:col-6 lg:col-4 xl:col-4 
-        pl-3 pr-3 pb-6 text-center md:text-center align-items-center ">
-        <section class="mr-1 md:mt-4 md:mb-3">
-          <span class="block text-6xl font-bold mb-3" style="color:black">SGDD
-            <strong class="block" style="color:gray;font-size: 0.8rem;">
-              Sistema de gestion deportivo departamental
-            </strong></span>
+<form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate class="form1">
 
-          <i class="pi pi-user" style="font-size: 3rem"></i>
+  <div class="container" id="container">
+    <!-- <div class="form-container sign-up-container">
+        <form action="#">
+          <h1>Create Account</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button>Sign Up</button>
+        </form>
+      </div> -->
+    <ng-template [ngIf]="motrar == false">
+      <div class="form-container sign-in-container">
 
+        <h1>SGDD</h1>
+        <!-- <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your account</span> -->
+        <input type="email" pInputText formControlName="username" placeholder="Correo" />
+        <input type="password" pInputText formControlName="password" placeholder="Password" />
+        <!-- <a href="#">Forgot your password?</a> -->
 
-          <!-- <p-avatar image="{{image3}}" styleClass="mr-2 "  
-            shape="circle" size="xlarge"></p-avatar>  -->
-          <div [style]="{'margin-top':'-1px'}">
-            <div fxLayout="row" class="titleCard">
-              <i class="pi pi-shield" style="font-size: 2rem;margin-right: 10px;"></i>
-              <h2 class="fondebabutton" style="margin-top: -1px;">Inicio de sesión</h2>
-            </div>
-            <div class="p-grid p-fluid">
-              <div class="p-col-12 p-md-4">
-                <div class="p-inputgroup">
-                  <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                  <input type="email" pInputText formControlName="username" placeholder="Correo">
-                </div>
-              </div>
-              <div class="p-col-12 p-md-4" style="margin-top: 20px;">
-                <div class="p-inputgroup">
-                  <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-                  <input type="password" pInputText formControlName="password" placeholder="Password">
-                </div>
-              </div>
-            </div>
+        <button pButton pRipple type="submit" icon="pi pi-check" label="Entrar" [disabled]="!form.valid"></button>
 
-          </div> 
-          <ng-template [ngIf]="motrar == false">
-            <div fxLayout="row" class="titleCard ">
-              <button pButton pRipple type="submit" icon="pi pi-check" label="Entrar" [disabled]="!form.valid"
-                style="width:auto" styleClass="mr-2" class="mr-3 p-button-raised mt-3"></button>
-              <button pButton pRipple type="button" routerLink="/register" icon="pi pi-users" styleClass="p-button-text"
-                style="width:auto" label="Registrarse" class="p-button-outlined mt-3"></button>
-            </div>
-          </ng-template>
-          <ng-template [ngIf]="motrar == true">
-            <br>
-            <br>
-            <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
-          </ng-template>
-        </section>
       </div>
-      <div class="col-12 sm:col-6 md:col-6 lg:col-8 xl:col-8 overflow-hidden " style="border-radius: 20px;">
+    </ng-template>
 
-        <img src="assets/deportes.jpg" alt="Image" class="md:ml-auto block "
-          style="clip-path: polygon(7% 0, 100% 0%, 100% 87%, 0 87%);height:84%">
+    <ng-template [ngIf]="motrar == true">
+      <span class="loader"></span>
+    </ng-template>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>¡Bienvenido de vuelta!</h1>
+          <p>Para mantenerse conectado con nosotros, inicie sesión con su información personal</p>
+          <button class="ghost" id="signIn" pButton pRipple type="button" routerLink="/login" icon="pi pi-sync"
+            label="Login"></button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hola!</h1>
+          <p>Introduce tus datos personales y comienza tu viaje con nosotros</p>
+          <button class="ghost" id="signUp" pButton pRipple type="button" routerLink="/register" icon="pi pi-users"
+            label="Registrarse"></button>
+        </div>
       </div>
     </div>
+  </div>
 
-  </p-dialog>
+
 </form>
 
 <p-toast></p-toast>

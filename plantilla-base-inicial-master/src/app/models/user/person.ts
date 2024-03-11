@@ -4,24 +4,32 @@ export interface PersonI {
     id?:number;
     name: string;
     surname: string;
-    DocumentTypeId: string;
+    DocumentTypeId: number;
     identification: string;
-    GenderId?: string;
-    UserId: number;
+    GenderId?: number;
+    user: number;
     address?: string;
     phone?: string;
     Gender?:any;
     DocumentType?:any;
-    User?:{
-      id?:number;
-      username: string;
-      email?:string;
-      password?: string;
-      fullName: string;
-      Roles?:RoleI[]
-  avatar?:string
-    }
+    // user:number;
+    //   user?:{
+    //     id:number;
+    //     username: string;
+    //     email?:string;
+    //     // password?: string;
+    //     //fullName: string;
+    //     Roles?:RoleI[];
+    //     avatar?:string;
+    //   }
     nationality?: string;
     date_of_birth?: string;
     rolesUsers?:any[]
 }
+
+
+
+
+
+
+

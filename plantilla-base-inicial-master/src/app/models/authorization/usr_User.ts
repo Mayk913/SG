@@ -2,15 +2,15 @@ import { PersonI } from "../user/person";
 import { RoleI } from "./usr_roles";
 
 export interface UserI {
-  id?:number;
+  id:number;
   username: string;
   email: string;
   //fullName: string;
   password?: string;
   Roles?:[
-    {
-      name:string
-    }
+    // {
+    //   name:string
+    // }
   ]
   Person?:PersonI
   avatar?:string
@@ -32,9 +32,13 @@ export interface UserLoginI {
 
 
 export interface UserLoginResponseI {
-  user:  UsernameI;
+  ok?:boolean;
+  data?: any;
+  request_id?: any;
+  user?:  UsernameI;
   token: string;
   menu?:any
+
 }
 
 export interface MenuResponseI {

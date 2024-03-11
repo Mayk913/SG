@@ -1,5 +1,5 @@
 
-import {  PrimeNGConfig } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './core/services/auth/auth.service';
 // import { forkJoin, Observable } from 'rxjs';
@@ -18,31 +18,31 @@ export class AppComponent implements OnInit{
   video: string='assets/video/manteni.mp4';
   constructor(
     private primengConfig: PrimeNGConfig,
-    private maintenanceService: MaintenanceService,
+    // private maintenanceService: MaintenanceService,
     private router: Router,
     private authService: AuthService, 
 
    ) {}
 
   ngOnInit() {
-    // console.log(this.router.url)
-    this.maintenanceService.getUrl('/').subscribe((cnt_groupFromApi)=>{
-      if(cnt_groupFromApi.maintenance != null){
-            this.mantenimiento= true
-            this.cerrarSesion()
-            // console.log('aquii')
-        }else{
-          this.mantenimiento= false
+    // // console.log(this.router.url)
+    // this.maintenanceService.getUrl('/').subscribe((cnt_groupFromApi)=>{
+    //   if(cnt_groupFromApi.maintenance != null){
+    //         this.mantenimiento= true
+    //         this.cerrarSesion()
+    //         // console.log('aquii')
+    //     }else{
+    //       this.mantenimiento= false
 
-        }
-        // console.log(this.mantenimiento)
+    //     }
+    //     // console.log(this.mantenimiento)
 
-        if(this.mantenimiento == true){
-          this.router.navigateByUrl('/mantenimiento');
-        }
+    //     if(this.mantenimiento == true){
+    //       this.router.navigateByUrl('/mantenimiento');
+    //     }
      
-    })
-    this.primengConfig.ripple = true; 
+    // })
+    // this.primengConfig.ripple = true; 
   }
 
   cerrarSesion(){

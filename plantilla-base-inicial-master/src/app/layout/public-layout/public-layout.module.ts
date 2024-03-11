@@ -45,12 +45,13 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import {PasswordModule} from 'primeng/password';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AccordionModule} from 'primeng/accordion';
 
 @NgModule({
   declarations: [
     PublicLayoutComponent,
     FormLoginComponent,
-    FormRegisterComponent
+    FormRegisterComponent,
     
   ],
   imports: [
@@ -77,7 +78,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    
+    AccordionModule,
     DividerModule,
     ButtonModule,
     CheckboxModule,

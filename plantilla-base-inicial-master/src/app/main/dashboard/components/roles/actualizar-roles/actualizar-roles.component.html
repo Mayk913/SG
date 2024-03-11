@@ -1,0 +1,9 @@
+<form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+    <div class="card flex justify-content-center">
+      <span class="p-float-label">
+        <input pInputText id="name" formControlName="name" [ngClass]="{'input-focused': true}" />
+        <label htmlFor="name">Nombre del Rol</label>
+      </span>
+    </div>
+  </form>
+  

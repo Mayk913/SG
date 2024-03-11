@@ -1,0 +1,35 @@
+/* Aplicar color de fondo a todos los p-button */
+.boton {
+    width: 2.3rem;
+    height: 2.3rem;
+    background-color: #FF416C;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: white;
+    margin-left: 7px;
+ /* Cambiar a tu color deseado */
+ /* Transiciones para suavizar los cambios de estilo */
+    transition: border-color 0.3s, background 0.3s;
+}
+
+
+.boton:hover {
+    /* Estilo cuando el cursor está sobre el botón */
+    border-color: #FF416C;
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+  }
+
+span{
+    font-size: 20px;
+    font-weight: 500;
+}
+:host::ng-deep{
+    .tabla{
+        color: red;
+    }
+}
+/* .tabla.p-table{
+    color: red;
+    background-color: yellowgreen;
+    border-radius: 10px;
+} */
