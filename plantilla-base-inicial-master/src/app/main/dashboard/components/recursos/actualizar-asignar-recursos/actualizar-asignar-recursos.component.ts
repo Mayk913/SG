@@ -43,12 +43,13 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
   ngOnInit() {
     this.mostrar();
     this.getResourceRolOptions();
+    
   }
 
   mostrar() {
     this.route.params.subscribe(params => {
       const id = +params['id'];
-
+  
       if (!isNaN(id)) {
         this.id = id;
         this.getRolResource(this.id);
@@ -109,6 +110,7 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
   // }
   getRolResource(id: number) {
     this.resourcesService.getRoleResourceById(id).subscribe({
+<<<<<<< HEAD
       next: (data) => {
         if (data) {
           console.log(data);
@@ -118,6 +120,16 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
             resource_id: data.resource_id,  // Ajusta esto según las propiedades reales de 'data'
           };
           this.form.setValue(formValue);
+=======
+      next: (data:assinRoleResourceI) => {
+        if (data) {
+          console.log('datafromfuntion:', data)
+          this.form.patchValue({
+            id: data.id,
+            role_Id: data.role_id,  // Ajusta esto según las propiedades reales de 'data'
+            resource_Id: data.resource_id,  // Ajusta esto según las propiedades reales de 'data'
+          });
+>>>>>>> 9ed58d6585b338d523a48bfe42f9cb73f2b8ec8b
         } else {
           console.error('El objeto data no tiene la propiedad "id" definida correctamente.');
         }
