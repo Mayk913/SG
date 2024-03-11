@@ -35,8 +35,8 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       id: [''],
-      role_Id: ['', [Validators.required]],
-      resource_Id: ['', [Validators.required]],
+      role_id: ['', [Validators.required]],
+      resource_id: ['', [Validators.required]],
     });
   }
 
@@ -87,16 +87,37 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
     });
   }
 
+  // getRolResource(id: number) {
+  //   this.resourcesService.getRoleResourceById(id).subscribe({
+  //     next: (data) => {
+  //       if (data) {
+  //         console.log( data)
+  //         this.form.setValue(data);
+  //         // this.form.patchValue({
+  //         //   id: data.id,
+  //         //   role_Id: data.role_Id,  // Ajusta esto según las propiedades reales de 'data'
+  //         //   resource_Id: data.resource_Id,  // Ajusta esto según las propiedades reales de 'data'
+  //         // });
+  //       } else {
+  //         console.error('El objeto data no tiene la propiedad "id" definida correctamente.');
+  //       }
+  //     },
+  //     error: (error) => {
+  //       console.error('Error al obtener el recurso:', error);
+  //     }
+  //   });
+  // }
   getRolResource(id: number) {
     this.resourcesService.getRoleResourceById(id).subscribe({
-      next: (data:any) => {
+      next: (data) => {
         if (data) {
-          console.log( data)
-          this.form.patchValue({
+          console.log(data);
+          const formValue = {
             id: data.id,
-            role_Id: data.role_Id,  // Ajusta esto según las propiedades reales de 'data'
-            resource_Id: data.resource_Id,  // Ajusta esto según las propiedades reales de 'data'
-          });
+            role_id: data.role_id,  // Ajusta esto según las propiedades reales de 'data'
+            resource_id: data.resource_id,  // Ajusta esto según las propiedades reales de 'data'
+          };
+          this.form.setValue(formValue);
         } else {
           console.error('El objeto data no tiene la propiedad "id" definida correctamente.');
         }
@@ -106,4 +127,5 @@ export class ActualizarAsignarRecursosComponent implements OnInit {
       }
     });
   }
+  
 }

@@ -1,10 +1,12 @@
 export interface assinRoleResourceI{
     id?:number;
-    RecursosRoles:[
-      {
-        resource_Id: string; 
-        role_Id:string;
-      }
-    ]
+    resource_id: string; 
+    role_id:string;
+    // RecursosRoles:[
+    //   {
+    //     resource_id: string; 
+    //     role_id:string;
+    //   }
+    // ]
     
-  }
+  }//aa
